@@ -1,0 +1,57 @@
+/* Extra large devices (large desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) {
+    .hero-text-box {
+        width: 100%;
+        padding: 0 8%;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
+    body {
+        font-size: 14px;
+    }
+
+    section {
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+    body {
+        font-size: 12px;
+    }
+
+    .hero-text-box {
+        padding: 0 4%;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 140%;
+    }
+
+    h2 {
+        font-size: 100%;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media only screen and (max-width: 576px) {
+    .hero-text-box {
+        text-align: center;
+    }
+
+    .hero-text-box a {
+        width: 80%;
+    }
+
+    .nav-item {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    a.nav-link {
+        margin: 0 90px;
+    }
+}
