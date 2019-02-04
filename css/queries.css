@@ -1,3 +1,5 @@
+/* USED TO MAKE HTML ELEMENTS RESPONSIVE */
+
 /* Extra large devices (large desktops, 1200px and up) */
 @media only screen and (max-width: 1200px) {
     .hero-text-box {
@@ -13,6 +15,7 @@
     }
 
     section {
+        padding: 60px 0;
     }
 }
 
@@ -25,14 +28,6 @@
     .hero-text-box {
         padding: 0 4%;
         text-align: center;
-    }
-
-    h1 {
-        font-size: 140%;
-    }
-
-    h2 {
-        font-size: 100%;
     }
 }
 

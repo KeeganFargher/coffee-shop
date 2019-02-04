@@ -31,27 +31,12 @@ h3 {
     padding: 10px;
 }
 
-@media (min-width: 576px) {
-    .signin-wrapper {
-        padding: 30px;
-    }
-}
-
 .signin-box {
     width: 400px;
     background-color: #fff;
     padding: 20px;
 }
 
-@media (min-width: 480px) {
-    .signin-box {
-        padding: 60px 40px;
-    }
-
-    h3 {
-        font-size: 1.2rem;
-    }
-}
 
 .signin-box .slim-logo {
     margin-right: 0;
@@ -73,5 +58,26 @@ h3 {
 
 .signin-title-secondary {
     font-weight: 300;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+}
+
+.invalid-feedback {
+    display: block;
+    font-size: 100%;
+}
+
+@media (min-width: 576px) {
+    .signin-wrapper {
+        padding: 30px;
+    }
+}
+
+@media (min-width: 480px) {
+    .signin-box {
+        padding: 40px 40px;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
 }
