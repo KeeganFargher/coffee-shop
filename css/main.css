@@ -134,12 +134,72 @@ a.navbar-brand {
 }
 
 /* ----------------------------------------------- */
-/* FEATURES */
+/* FEATURES                                        */
 /* ----------------------------------------------- */
 
 .section-features .long-copy {
     margin-bottom: 30px;
 }
+
+/* ----------------------------------------------- */
+/* BUY COFFEE SECTION                              */
+/* ----------------------------------------------- */
+
+.container-fluid-buy {
+    height: 100vh;
+    margin: auto;
+    width: 100%;
+}
+
+.container-white {
+    background-color: white;
+    margin-top: 120px;
+    min-height: 100vh;
+}
+
+.container-black {
+    background-color: #1a1a1a;
+    /* Overwrite bootstrap */
+    padding-top: 30px !important;
+    min-height: 100vh;
+    margin-bottom: -30px;
+}
+
+.container-black h1 {
+    color: white;
+}
+
+.container-black .line-under-text:after {
+    background-color: white;
+}
+
+.cart-items-container {
+    padding: 0 200px;
+}
+
+.card {
+    border: 0;
+    height: 100%;
+    margin-bottom: 10px;
+}
+
+.button-card-white {
+    border-color: white;
+    color: white;
+}
+
+.button-card-white:not([disabled]):not(.disabled):hover,
+.button-card-white:not([disabled]):not(.disabled):focus,
+.button-card-white:not([disabled]):not(.disabled):active {
+    background-color: white;
+    border-color: white;
+    color: black;
+}
+
+.card-padding {
+    padding-bottom: 25px !important;
+}
+
 
 /* ----------------------------------------------- */
 /* FOOTER SECTION                                  */

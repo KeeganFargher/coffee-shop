@@ -6,6 +6,10 @@
         width: 100%;
         padding: 0 8%;
     }
+
+    .cart-items-container {
+        padding: 0 80px;
+    }
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -16,6 +20,14 @@
 
     section {
         padding: 60px 0;
+    }
+
+    .cart-items-container {
+        padding: 0 20px;
+    }
+
+    .cart-items-container {
+        padding: 0 80px;
     }
 }
 
@@ -28,6 +40,10 @@
     .hero-text-box {
         padding: 0 4%;
         text-align: center;
+    }
+
+    .cart-items-container {
+        padding: 0 40px;
     }
 }
 
@@ -48,5 +64,9 @@
 
     a.nav-link {
         margin: 0 90px;
+    }
+
+    .cart-items-container {
+        padding: 0 20px;
     }
 }
