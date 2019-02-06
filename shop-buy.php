@@ -22,7 +22,7 @@
                         "<h5 class='card-title'>". $row["Name"] ."</h5>" .
 
                         "<p class='card-text'>R ". $row["Sell_Price"] ."</p>" .
-                        "<button class='". $button_style ."'>Add To Cart</button>" .
+                        "<button id='". $row["ID"] ."' onClick='onClick($(this))' class='". $button_style ."'>Add To Cart</button>" .
                         "</div>" .
                     "</div>" .
                 "</div>";
@@ -75,9 +75,31 @@
     <?php require("footer.php"); ?>
 
     <!-- JAVASCRIPT REQUIRED -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+    function onClick(e) {
+        let cartItemId = e[0].id;
+
+        $.ajax({
+            url: 'php/addToCart.php',
+            type: 'POST',
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: {
+                id: cartItemId
+            },
+            success: function(data) {
+                console.log(data);
+            }
+        });
+    }
+    </script>
+
+
 </body>
 
 </html>

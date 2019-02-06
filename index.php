@@ -16,7 +16,6 @@
             $sql = "SELECT ID, FName, LName FROM tbl_User WHERE email = '$email' and password = SHA('$password')";
             $result = $db->query($sql);
             $row = $result->fetch_assoc();
-            //$active = $row['active'];
 
             $count = mysqli_num_rows($result);
 
@@ -57,7 +56,8 @@
 
                         <!-- Email -->
                         <label for="username">Email</label>
-                        <input type="text" class="input-text form-control mb-3" name="email" value="<?php echo $email ?>" />
+                        <input type="text" class="input-text form-control mb-3" name="email"
+                            value="<?php echo $email ?>" />
 
                         <!-- Password -->
                         <label for="password">Password</label>
