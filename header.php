@@ -8,16 +8,16 @@
 
         <div class="collapse navbar-collapse" id="navbarExpansion">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item ">
+                <li class="nav-item text-center text-lg-right">
                     <a class="nav-link" href="shop-home.php">Home</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item text-center text-lg-right">
                     <a class="nav-link" href="shop-buy.php">Shop Now</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item text-center text-lg-right">
                     <a class="nav-link" href="#">About</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item text-center text-lg-right">
                     <a class="nav-link" href="#">Admin</a>
                 </li>
             </ul>
@@ -25,12 +25,12 @@
                 <?php 
                     if (isset($_SESSION['isSignedIn']) && $_SESSION['isSignedIn'] === true) {
                         echo 
-                        "<li><a href='#' class='mr-4'>Welcome " . $_SESSION["firstName"] ."</a></li>
-                        <li><a href='#' class='mr-4'>Logout</a></li>";
+                        "<li class='text-center text-lg-right'><a href='#' class='mr-0 mr-lg-4'>Welcome " . $_SESSION["firstName"] ."</a></li>
+                        <li class='text-center text-lg-right'><a href='#' class='mr-0 mr-lg-4'>Logout</a></li>";
                     } else {
                         echo 
-                        "<li><a href='index.php' class='mr-4'>Login</a></li>
-                        <li><a href='signup.php' class='mr-4'>Sign Up</a></li>";
+                        "<li class='text-center text-lg-right'><a href='index.php' class='mr-0 mr-lg-4'>Login</a></li>
+                        <li class='text-center text-lg-right'><a href='signup.php' class='mr-0 mr-lg-4'>Sign Up</a></li>";
                     }
                 ?>
 

@@ -183,6 +183,20 @@ a.navbar-brand {
     margin-bottom: 10px;
 }
 
+.card-body {
+    min-height: 160px;
+}
+
+.card button {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+
+    margin: auto;
+    width: 90%;
+}
+
 .button-card-white {
     border-color: white;
     color: white;

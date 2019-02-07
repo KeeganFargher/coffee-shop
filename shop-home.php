@@ -49,9 +49,9 @@
 
                     <h3>Pure blissful coffee</h3>
                     <p>
-                        We are constantly working around the clock to ensure you
-                        get your coffee as soon as possible! Don't be surprised if
-                        you hear us knocking on your door during your Sunday lunch.
+                        We ensure that our suppliers produce only the finest coffee
+                        beans. Each batch is hand checked and extensive research is
+                        done to ensure it comes from a single origin.
                     </p>
                 </div>
                 <div class="col-12 col-md-4 mb-4 section-icon-padding">

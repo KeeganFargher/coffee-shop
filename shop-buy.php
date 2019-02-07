@@ -52,7 +52,7 @@
                 generateCoffeeHtml(
                     $db,
                     "card text-white bg-primary mb-3",
-                    "btn btn-outline-secondary w-100 button-card-white",
+                    "btn btn-outline-secondary button-card-white",
                     2);
             ?>
         </div>
@@ -66,7 +66,7 @@
                 generateCoffeeHtml(
                     $db,
                     "card border-primary mb-3",
-                    "btn btn-primary w-100",
+                    "btn btn-primary",
                     4);
             ?>
         </div>
@@ -80,23 +80,23 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <script>
-    function onClick(e) {
-        let cartItemId = e[0].id;
+        function onClick(e) {
+            let cartItemId = e[0].id;
 
-        $.ajax({
-            url: 'php/addToCart.php',
-            type: 'POST',
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: {
-                id: cartItemId
-            },
-            success: function(data) {
-                console.log(data);
-            }
-        });
-    }
+            $.ajax({
+                url: 'php/addToCart.php',
+                type: 'POST',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: {
+                    id: cartItemId
+                },
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        }
     </script>
 
 
