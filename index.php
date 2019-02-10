@@ -1,9 +1,9 @@
 <?php
         session_start();
 
-        include("php/createTable.php");
         include("php/DBConn.php");
-        
+        include("php/createTable.php");
+
         // Define variables and set to empty values
         $email = $password = $error = "";
 
@@ -21,6 +21,7 @@
 
             // If result matched, table row must be 1 row
             if($count == 1) {
+                $_SESSION['userId'] = $row['ID'];
                 $_SESSION['firstName'] = $row['FName'];
                 $_SESSION['isSignedIn'] = true;
 
@@ -56,8 +57,7 @@
 
                         <!-- Email -->
                         <label for="username">Email</label>
-                        <input type="text" class="input-text form-control mb-3" name="email"
-                            value="<?php echo $email ?>" />
+                        <input type="text" class="input-text form-control mb-3" name="email" value="<?php echo $email ?>" />
 
                         <!-- Password -->
                         <label for="password">Password</label>
@@ -74,7 +74,7 @@
                 </form>
                 <div class="text-center">
                     <p>
-                        Not Yet a Member? <a href="#">Sign Up.</a><br /><br />
+                        Not Yet a Member? <a href="signup.php">Sign Up.</a><br /><br />
 
                         Copyright 2019 &copy; <a href="#" target="_blank">GRINDER</a><br />
                         Built by: <a href="https://github.com/KeeganFargher" target="_blank">Keegan Fargher</a>
