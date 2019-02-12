@@ -1,7 +1,7 @@
 <?php
         session_start();
 
-        include("php/createTable.php");
+        //include("php/createTable.php");
         include("php/DBConn.php");
         
         // Define variables and set to empty values
@@ -56,8 +56,7 @@
 
                         <!-- Email -->
                         <label for="username">Email</label>
-                        <input type="text" class="input-text form-control mb-3" name="email"
-                            value="<?php echo $email ?>" />
+                        <input type="text" class="input-text form-control mb-3" name="email" value="<?php echo $email ?>" />
 
                         <!-- Password -->
                         <label for="password">Password</label>
