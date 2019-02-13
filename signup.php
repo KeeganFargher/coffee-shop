@@ -63,8 +63,8 @@
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_store_result($stmt);
 
-                    $_SESSION['userId'] = $row['ID'];
-                    $_SESSION['firstName'] = $row['FName'];
+                    $_SESSION['userId'] = mysqli_stmt_insert_id($stmt);
+                    $_SESSION['firstName'] = $firstname;
                     $_SESSION['isSignedIn'] = true;
                     header("location: shop-home.php");
                 }

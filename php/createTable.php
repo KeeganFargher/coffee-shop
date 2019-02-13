@@ -4,9 +4,6 @@
     remakeTable($db);
     insertData($db);
 
-    $db->close();
-
-
 function remakeTable($db) {
     $deleteQuery = "DROP TABLE IF EXISTS tbl_User";
     $db->query($deleteQuery);
