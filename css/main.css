@@ -44,6 +44,17 @@ section {
     margin-bottom: 30px;
 }
 
+.line-under-text-white:after {
+    display: block;
+    height: 2px;
+    background-color: white;
+    content: ' ';
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 .large-paragraph {
     font-size: 1.2rem;
 }
@@ -221,9 +232,9 @@ a.navbar-brand {
 .section-testimonials {
     background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.8),
         rgba(0, 0, 0, 0.8)),
-        url(../img/hero-image-homepage.jpg);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-        url(../img/hero-image-homepage.jpg);
+        url(../img/testimonial.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+        url(../img/testimonial.jpg);
     background-size: cover;
     /* Overwrite bootstrap */
     color: #fff !important;

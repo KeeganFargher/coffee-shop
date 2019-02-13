@@ -29,7 +29,10 @@
         <p class="long-copy large-paragraph text-center mb-5">
             Hello, we’re Grinder &mdash; your one and only shop to get fresh coffee. We
             offer a wide selection of both ground and fresh coffee beans. Anything fresher
-            than our coffee is still on the plant. Order today!
+            than our coffee is <a href="https://www.theroasterie.com/blog/coffee-101-what-does-a-coffee-plant-look-like/">still
+                a
+                cherry.</a>
+            Order today.
         </p>
 
         <div class="container">
@@ -71,25 +74,23 @@
     <!-- TESTIMONIAL SECTION -->
     <section class="section-testimonials" id="features">
         <div class="container">
-            <div class="row text-center">
-                <h2 class="">Our customers can't live without us</h2>
-            </div>
+            <h2 class="text-center line-under-text-white">Our customers can't live without us</h2>
             <div class="row">
                 <div class="col-12 col-sm-4">
                     <blockquote>
-                        Omnifood is just awesome! I just launched a startup
-                        which leaves me with no time for cooking, so Omnifood is
-                        a life-saver. Now that I got used to it, I couldn't live
-                        without my daily meals!
+                        Grinder is just awesome! I just launched a startup
+                        which leaves me with no time shopping for coffee, so Grinder is
+                        a life-saver. Now that I got used ordering online, I couldn't live
+                        without my daily cup!
                         <cite><img src="img/customer-1.jpg" />Alberto
                             Duncan</cite>
                     </blockquote>
                 </div>
                 <div class="col-12 col-sm-4">
                     <blockquote>
-                        Inexpensive, healthy and great-tasting meals, delivered
-                        right to my home. We have lots of food delivery here in
-                        Lisbon, but no one comes even close to Omifood. Me and
+                        Inexpensive, single-origin and great-tasting coffee, delivered
+                        right to my home. We have lots of coffee delivery here in
+                        Cape Town, but no one comes even close to Grinder. Me and
                         my family are so in love!
                         <cite><img src="img/customer-2.jpg" />Joana
                             Silva</cite>
@@ -97,15 +98,54 @@
                 </div>
                 <div class="col-12 col-sm-4">
                     <blockquote>
-                        I was looking for a quick and easy food delivery service
-                        in San Franciso. I tried a lot of them and ended up with
-                        Omnifood. Best food delivery service in the Bay Area.
+                        I was looking for a quick and easy coffee delivery service
+                        in Cape Town. I tried a lot of them and ended up with
+                        Grinder. Best coffee delivery service in the country.
                         Keep up the great work!
                         <cite><img src="img/customer-3.jpg" />Milton
                             Chapman</cite>
                     </blockquote>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- CONTACT US SECTION -->
+    <section class="section-form">
+        <div class="container">
+            <h2 class="text-center line-under-text">We're happy to hear from you</h2>
+
+            <form method="POST" action="#" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input class="form-control" aria-describedby="emailHelp" placeholder="Enter Full Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="findus">How Did You Find Us?</label>
+                    <select class="form-control" id="findus">
+                        <option value="Friends" selected>Friends</option>
+                        <option value="Other">Other</option>
+                        <option value="Ad">Advertisement</option>
+                        <option value="Search-engine">Search engine</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="textarea">Drop us a Line</label>
+                    <textarea class="form-control" id="textarea" rows="3"></textarea>
+                </div>
+
+                <input type="submit" class="btn btn-primary" value="Send">
+
+            </form>
+        </div>
         </div>
 
     </section>
