@@ -108,7 +108,7 @@ a.navbar-brand {
 /* ----------------------------------------------- */
 .full-screen-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url(../img/hero-image-homepage.webp);
+        url(../img/hero-image-homepage.jpg);
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -221,9 +221,9 @@ a.navbar-brand {
 .section-testimonials {
     background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.8),
         rgba(0, 0, 0, 0.8)),
-        url(../img/hero-image-homepage.webp);
+        url(../img/hero-image-homepage.jpg);
     background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-        url(../img/hero-image-homepage.webp);
+        url(../img/hero-image-homepage.jpg);
     background-size: cover;
     /* Overwrite bootstrap */
     color: #fff !important;

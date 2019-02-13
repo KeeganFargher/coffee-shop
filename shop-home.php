@@ -81,7 +81,7 @@
                         which leaves me with no time for cooking, so Omnifood is
                         a life-saver. Now that I got used to it, I couldn't live
                         without my daily meals!
-                        <cite><img src="resources/img/customer-1.jpg" />Alberto
+                        <cite><img src="img/customer-1.jpg" />Alberto
                             Duncan</cite>
                     </blockquote>
                 </div>
@@ -91,7 +91,7 @@
                         right to my home. We have lots of food delivery here in
                         Lisbon, but no one comes even close to Omifood. Me and
                         my family are so in love!
-                        <cite><img src="resources/img/customer-2.jpg" />Joana
+                        <cite><img src="img/customer-2.jpg" />Joana
                             Silva</cite>
                     </blockquote>
                 </div>
@@ -101,7 +101,7 @@
                         in San Franciso. I tried a lot of them and ended up with
                         Omnifood. Best food delivery service in the Bay Area.
                         Keep up the great work!
-                        <cite><img src="resources/img/customer-3.jpg" />Milton
+                        <cite><img src="img/customer-3.jpg" />Milton
                             Chapman</cite>
                     </blockquote>
                 </div>
