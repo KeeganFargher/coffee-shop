@@ -1,13 +1,13 @@
-Bella Donovan,80.00,200,100.00,2
-Giant Steps,80.00,50,100.00,2
-Three Africas,80.00,50,100.00,2
-Beta Blend,80.00,50,100.00,2
-New Orleans Iced Kit,80.00,50,100.00,2
-Uganda Sipi Falls,80.00,50,100.00,2
+Bella Donovan,80.00,200,100.00,1
+Giant Steps,80.00,50,100.00,1
+Three Africas,80.00,50,100.00,1
+Beta Blend,80.00,50,100.00,1
+New Orleans Iced Kit,80.00,50,100.00,1
+Uganda Sipi Falls,80.00,50,100.00,1
+Honduras Santa Elena,80.00,50,100.00,1
+Ecuador Pichincha,80.00,50,100.00,2
+Kenya Kiambu Handege,80.00,50,100.00,2
+Costa Rica Lourdes de Naranjo,80.00,50,100.00,2
+Opascope Espresso,80.00,50,100.00,2
+Ethiopia Gera Abana Estate,80.00,50,100.00,2
 Honduras Santa Elena,80.00,50,100.00,2
-Ecuador Pichincha,80.00,50,100.00,4
-Kenya Kiambu Handege,80.00,50,100.00,4
-Costa Rica Lourdes de Naranjo,80.00,50,100.00,4
-Opascope Espresso,80.00,50,100.00,4
-Ethiopia Gera Abana Estate,80.00,50,100.00,4
-Honduras Santa Elena,80.00,50,100.00,4

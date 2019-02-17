@@ -54,7 +54,7 @@
                     $db,
                     "card text-white bg-primary mb-3",
                     "btn btn-outline-secondary button-card-white",
-                    2);
+                    1);
             ?>
         </div>
     </div>
@@ -69,8 +69,25 @@
                     $db,
                     "card border-primary mb-3",
                     "btn btn-primary",
-                    4);
+                    2);
             ?>
+        </div>
+    </div>
+
+    <div class="modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">The Price of Your Item</h5>
+
+                </div>
+                <div class="modal-body">
+                    <p id="price"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onClick="closeModal()">Okay</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -88,16 +105,21 @@
             $.ajax({
                 url: 'php/addToCart.php',
                 type: 'POST',
-                cache: false,
-                contentType: false,
-                processData: false,
                 data: {
-                    id: cartItemId
+                    'id': cartItemId
                 },
                 success: function (data) {
-                    console.log(data);
+                    $("#price").text('R' + data);
+                    $(".modal").show();
+                },
+                error: function (error) {
+                    console.log(error)
                 }
             });
+        }
+
+        function closeModal() {
+            $(".modal").hide();
         }
     </script>
 

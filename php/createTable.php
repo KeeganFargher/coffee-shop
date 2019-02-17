@@ -25,8 +25,10 @@ function remakeCoffeeStrengthTable($db) {
 }
 
 function insertCoffeeStrengthData($db) {
-    $sql = "INSERT INTO tbl_coffee_stength VALUES ('Light Roast'), ('Dark Roast');";
-    $db->query($sql);
+    $sql = "INSERT INTO tbl_coffee_strength (Strength) VALUES ('Light Roast'), ('Dark Roast');";
+    if ($db->query($sql) !== TRUE) {
+        echo "Error: " . "<br>" . $db->error ;
+    }
 }
 
 function remakeItemTable($db) {

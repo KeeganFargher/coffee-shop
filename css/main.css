@@ -358,3 +358,29 @@ footer p {
     text-align: center;
     margin-top: 20px;
 }
+
+/* ----------------------------------------------- */
+/* COMING SOON                                     */
+/* ----------------------------------------------- */
+
+.coming-soon-container {
+    height: 100vh;
+    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.7)),
+        url(../img/coming-soon.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url(../img/coming-soon.jpg);
+    background-size: cover;
+}
+
+.coming-soon-middle {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.coming-soon-middle h1 {
+    font-size: 3rem;
+}
