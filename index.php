@@ -1,9 +1,13 @@
 <?php
         session_start();
 
-        //include("php/createTable.php");
+<<<<<<< HEAD
+        include("php/createTable.php");
+=======
+>>>>>>> c9c4a42980117a8037352722095b575f57491a86
         include("php/DBConn.php");
-        
+        include("php/createTable.php");
+
         // Define variables and set to empty values
         $email = $password = $error = "";
 
@@ -21,6 +25,7 @@
 
             // If result matched, table row must be 1 row
             if($count == 1) {
+                $_SESSION['userId'] = $row['ID'];
                 $_SESSION['firstName'] = $row['FName'];
                 $_SESSION['isSignedIn'] = true;
 
@@ -73,7 +78,7 @@
                 </form>
                 <div class="text-center">
                     <p>
-                        Not Yet a Member? <a href="#">Sign Up.</a><br /><br />
+                        Not Yet a Member? <a href="signup.php">Sign Up.</a><br /><br />
 
                         Copyright 2019 &copy; <a href="#" target="_blank">GRINDER</a><br />
                         Built by: <a href="https://github.com/KeeganFargher" target="_blank">Keegan Fargher</a>

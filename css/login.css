@@ -17,7 +17,7 @@ h3 {
 
 .login-html {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-        url(../img/login.jpg);
+        url(../img/login-background.webp);
     background-size: cover !important;
     background-position: bottom !important;
     height: 100%;
