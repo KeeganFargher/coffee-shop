@@ -1,12 +1,11 @@
 <?php
+    include("DBConn.php");
     
-    function addToCart($id) {
-        include("php/DBConn.php");
+    $id = $_POST['id'];
 
-        $sql = "SELECT * FROM tbl_Item WHERE ID = " . $id;
-        $result = $db->query($sql);
-        $row = $result->fetch_assoc();
-        return $row;
-    }
+    $sql = "SELECT * FROM tbl_Item WHERE ID = " . $id;
+    $result = $db->query($sql);
+    $row = $result->fetch_assoc();
 
+    echo $row['Sell_Price'];
 ?>

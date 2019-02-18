@@ -44,6 +44,17 @@ section {
     margin-bottom: 30px;
 }
 
+.line-under-text-white:after {
+    display: block;
+    height: 2px;
+    background-color: white;
+    content: ' ';
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 .large-paragraph {
     font-size: 1.2rem;
 }
@@ -108,7 +119,7 @@ a.navbar-brand {
 /* ----------------------------------------------- */
 .full-screen-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url(../img/hero-image-homepage.webp);
+        url(../img/hero-image-homepage.jpg);
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -214,6 +225,57 @@ a.navbar-brand {
     padding-bottom: 25px !important;
 }
 
+/* ----------------------------------------------- */
+/* TESTIMONIALS                                    */
+/* ----------------------------------------------- */
+
+.section-testimonials {
+    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.8)),
+        url(../img/testimonial.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+        url(../img/testimonial.jpg);
+    background-size: cover;
+    /* Overwrite bootstrap */
+    color: #fff !important;
+    background-attachment: fixed;
+}
+
+.section-testimonials h2 {
+    /* Overwrite bootstrap */
+    color: #fff !important;
+}
+
+blockquote {
+    padding: 2%;
+    font-style: italic;
+    line-height: 145%;
+    position: relative;
+    margin-top: 40px;
+}
+
+blockquote:before {
+    content: "\201C";
+    font-size: 500%;
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+}
+
+cite {
+    font-size: 90%;
+    margin-top: 25px;
+    display: block;
+}
+
+cite img {
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
 
 /* ----------------------------------------------- */
 /* FOOTER SECTION                                  */
@@ -295,4 +357,30 @@ footer p {
     color: rgb(170, 169, 169);
     text-align: center;
     margin-top: 20px;
+}
+
+/* ----------------------------------------------- */
+/* COMING SOON                                     */
+/* ----------------------------------------------- */
+
+.coming-soon-container {
+    height: 100vh;
+    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.7)),
+        url(../img/coming-soon.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url(../img/coming-soon.jpg);
+    background-size: cover;
+}
+
+.coming-soon-middle {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.coming-soon-middle h1 {
+    font-size: 3rem;
 }

@@ -1,4 +1,5 @@
 <?php
+        session_unset();
         session_start();
 
 <<<<<<< HEAD
@@ -6,7 +7,7 @@
 =======
 >>>>>>> c9c4a42980117a8037352722095b575f57491a86
         include("php/DBConn.php");
-        include("php/createTable.php");
+        //include("php/createTable.php");
 
         // Define variables and set to empty values
         $email = $password = $error = "";
