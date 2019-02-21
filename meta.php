@@ -10,8 +10,8 @@
 
 <!-- External links -->
 <link href="https://unpkg.com/ionicons@4.4.8/dist/css/ionicons.min.css" rel="stylesheet" />
-<link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,300" rel="stylesheet" type="text/css" />
-<link href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
 <!-- Icons -->
 <link rel="apple-touch-icon" sizes="57x57" href="img/icons/apple-icon-57x57.png">
