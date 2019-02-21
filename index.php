@@ -3,7 +3,7 @@
         session_start();
 
         include("php/DBConn.php");
-        //include("php/createTable.php");
+        include("php/createTable.php");
 
         // Define variables and set to empty values
         $email = $password = $error = "";
@@ -46,6 +46,11 @@
 </head>
 
 <body>
+
+    <div class="loader-background">
+        <div class="loader"></div>
+    </div>
+
     <div class="login-html">
         <div class="signin-wrapper">
             <div class="signin-box">
@@ -85,5 +90,11 @@
         </div>
     </div>
 </body>
+<!-- JAVASCRIPT REQUIRED -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/ionicons@4.4.8/dist/ionicons.js"></script>
+<script src="js/loader.js"></script>
 
 </html>

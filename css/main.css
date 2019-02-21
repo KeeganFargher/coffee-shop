@@ -64,6 +64,43 @@ section {
     padding-right: 40px;
 }
 
+.loader-background {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    margin: -75px 0 0 -75px;
+    border: 8px solid white;
+    border-radius: 50%;
+    border-top: 8px solid #1a1a1a;
+    width: 100px;
+    height: 100px;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 /* ----------------------------------------------- */
 /* NAVIGATION BAR                                  */
 /* ----------------------------------------------- */
@@ -139,7 +176,7 @@ a.navbar-brand {
 .hero-text-box h1 {
     color: white !important;
     font-size: 300%;
-    font-family: 'Lato', 'Arial', sans-serif;
+    font-family: 'Raleway', 'Arial', sans-serif;
     font-weight: 300;
     text-transform: uppercase;
 }
@@ -230,8 +267,7 @@ a.navbar-brand {
 /* ----------------------------------------------- */
 
 .section-testimonials {
-    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.8),
-        rgba(0, 0, 0, 0.8)),
+    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
         url(../img/testimonial.jpg);
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
         url(../img/testimonial.jpg);
@@ -239,6 +275,7 @@ a.navbar-brand {
     /* Overwrite bootstrap */
     color: #fff !important;
     background-attachment: fixed;
+    background-position: center;
 }
 
 .section-testimonials h2 {
@@ -255,7 +292,7 @@ blockquote {
 }
 
 blockquote:before {
-    content: "\201C";
+    content: '\201C';
     font-size: 500%;
     display: block;
     position: absolute;
@@ -275,7 +312,6 @@ cite img {
     margin-right: 10px;
     vertical-align: middle;
 }
-
 
 /* ----------------------------------------------- */
 /* FOOTER SECTION                                  */
@@ -365,10 +401,9 @@ footer p {
 
 .coming-soon-container {
     height: 100vh;
-    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7),
-        rgba(0, 0, 0, 0.7)),
+    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
         url(../img/coming-soon.jpg);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
         url(../img/coming-soon.jpg);
     background-size: cover;
 }
