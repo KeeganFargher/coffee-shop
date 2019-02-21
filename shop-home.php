@@ -38,7 +38,7 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-12 col-md-4 mb-4 section-icon-padding">
-                    <i class="fal fa-infinity icon-big"></i>
+                    <i class="fa fa-infinity icon-big"></i>
 
                     <h3>Up to 365 days/year</h3>
                     <p>
@@ -48,7 +48,7 @@
                     </p>
                 </div>
                 <div class="col-12 col-md-4 mb-4 section-icon-padding">
-                    <i class="fal fa-coffee icon-big"></i>
+                    <i class="fa fa-coffee icon-big"></i>
 
                     <h3>Pure blissful coffee</h3>
                     <p>
@@ -58,7 +58,7 @@
                     </p>
                 </div>
                 <div class="col-12 col-md-4 mb-4 section-icon-padding">
-                    <i class="fal fa-shipping-fast icon-big"></i>
+                    <i class="fa fa-shipping-fast icon-big"></i>
 
                     <h3>Country wide free delivery</h3>
                     <p>

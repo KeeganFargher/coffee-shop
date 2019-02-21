@@ -32,7 +32,7 @@ function insertCoffeeStrengthData($db) {
 }
 
 function remakeItemTable($db) {
-    $drop = "DROP TABLE IF EXISTS tbl_Item;";
+    $drop = "DROP TABLE IF EXISTS tbl_item;";
     $db->query($drop);
 
     $createQuery = "
@@ -76,7 +76,7 @@ function insertItemData($db) {
 }
 
 function remakeUserTable($db) {
-    $drop = "DROP TABLE IF EXISTS tbl_User;";
+    $drop = "DROP TABLE IF EXISTS tbl_user;";
     $db->query($drop);
 
     $createQuery = "

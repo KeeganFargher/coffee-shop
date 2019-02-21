@@ -238,6 +238,7 @@ a.navbar-brand {
 	/* Overwrite bootstrap */
 	color: #fff !important;
 	background-attachment: fixed;
+	background-position: center;
 }
 
 .section-testimonials h2 {
@@ -363,9 +364,9 @@ footer p {
 
 .coming-soon-container {
 	height: 100vh;
-	background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+	background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
 		url(../img/coming-soon.jpg);
-	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+	background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
 		url(../img/coming-soon.jpg);
 	background-size: cover;
 }
