@@ -5,7 +5,7 @@
     function generateShoppingTable($db, $card_style, $button_style, $coffee_strength)
     {
         // Getting specific coffees
-        $sql = "SELECT * FROM tbl_Item WHERE Coffee_Strength_Id = " . $coffee_strength;
+        $sql = "SELECT * FROM tbl_item WHERE Coffee_Strength_Id = " . $coffee_strength;
         $result = $db->query($sql);
 
         if ($result->num_rows > 0) {
@@ -15,7 +15,7 @@
                 "<div class='col-12 col-md-4 col-lg-3 card-padding'>" .
                     "<div class='". $card_style ."'>" .
                         // Item's picture
-                        "<img src='img/shop coffee/". $row["ID"]. ".jpg' class='img-fluid' alt=''>" .
+                        "<img src='img/shop_coffee/". $row["ID"]. ".jpg' class='img-fluid' alt=''>" .
 
                         // Item's Details
                         "<div class='card-body'>" .

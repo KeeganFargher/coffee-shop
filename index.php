@@ -14,7 +14,7 @@
             $email = mysqli_real_escape_string($db, $_POST['email']);
             $password = mysqli_real_escape_string($db, $_POST['password']);
 
-            $sql = "SELECT ID, FName, LName FROM tbl_User WHERE email = '$email' and password = SHA('$password')";
+            $sql = "SELECT ID, FName, LName FROM tbl_user WHERE email = '$email' and password = SHA('$password')";
             $result = $db->query($sql);
             $row = $result->fetch_assoc();
 

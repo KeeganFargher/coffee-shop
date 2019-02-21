@@ -45,7 +45,7 @@
                 //  Checking if the email address already exists
                 //  Using prepared statements to prevent SQL injection
                 //  https://youtu.be/LC9GaXkdxF8?t=3285
-                $sql = "SELECT * FROM tbl_User WHERE Email=?";
+                $sql = "SELECT * FROM tbl_user WHERE Email=?";
                 $stmt = mysqli_stmt_init($db);
                 mysqli_stmt_prepare($stmt, $sql);
                 mysqli_stmt_bind_param($stmt, "s", $email);
@@ -56,7 +56,7 @@
                 if ($resultCheck > 0) {
                     $emailError = "Email Already Taken";
                 } else {
-                    $sql = "INSERT into tbl_User (FName, LName, Email, Password) VALUES (?, ?, ?, SHA(?))";
+                    $sql = "INSERT into tbl_user (FName, LName, Email, Password) VALUES (?, ?, ?, SHA(?))";
                     $stmt = mysqli_stmt_init($db);
                     mysqli_stmt_prepare($stmt, $sql);
                     mysqli_stmt_bind_param($stmt, "ssss", $firstname, $lastname, $email, $password);
