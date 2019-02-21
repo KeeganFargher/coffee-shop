@@ -12,6 +12,10 @@
 </head>
 
 <body>
+    <div class="loader-background">
+        <div class="loader"></div>
+    </div>
+
     <?php require("header.php"); ?>
 
     <!-- FULL SCREEN BANNER -->
@@ -157,6 +161,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/ionicons@4.4.8/dist/ionicons.js"></script>
+    <script src="js/loader.js"></script>
 </body>
 
 </html>

@@ -96,6 +96,11 @@
 </head>
 
 <body>
+
+    <div class="loader-background">
+        <div class="loader"></div>
+    </div>
+
     <div class="login-html">
         <div class="signin-wrapper">
             <div class="signin-box" style="width: 700px">
@@ -161,5 +166,6 @@
         </div>
     </div>
 </body>
+<script src="js/loader.js"></script>
 
 </html>
