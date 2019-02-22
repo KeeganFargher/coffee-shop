@@ -252,12 +252,26 @@ a.navbar-brand {
     color: white;
 }
 
+.button-card-black {
+    border: solid 2px #1a1a1a;
+}
+
 .button-card-white:not([disabled]):not(.disabled):hover,
 .button-card-white:not([disabled]):not(.disabled):focus,
 .button-card-white:not([disabled]):not(.disabled):active {
+    transition: 0.3s;
     background-color: white;
     border-color: white;
-    color: black;
+    color: #1a1a1a;
+}
+
+.button-card-black:not([disabled]):not(.disabled):hover,
+.button-card-black:not([disabled]):not(.disabled):focus,
+.button-card-black:not([disabled]):not(.disabled):active {
+    transition: 0.3s;
+    background-color: white !important;
+    border: solid 2px #1a1a1a;
+    color: #1a1a1a !important;
 }
 
 .card-padding {

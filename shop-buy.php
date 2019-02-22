@@ -72,7 +72,7 @@
                 generateShoppingTable(
                     $db,
                     "card border-primary mb-3",
-                    "btn btn-primary",
+"btn btn-primary button-card-black ",
                     2);
             ?>
         </div>

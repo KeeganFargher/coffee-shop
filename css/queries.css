@@ -29,6 +29,10 @@
     .cart-items-container {
         padding: 0 80px;
     }
+
+    li.nav-item.text-center.text-lg-right {
+        margin: auto !important;
+    }
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -45,6 +49,7 @@
     .cart-items-container {
         padding: 0 70px;
     }
+
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -58,12 +63,7 @@
     }
 
     .nav-item {
-        margin-right: 0;
         text-align: center;
-    }
-
-    a.nav-link {
-        margin: 0 90px;
     }
 
     .cart-items-container {
