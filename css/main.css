@@ -137,6 +137,9 @@ a.navbar-brand {
 /* ----------------------------------------------- */
 .long-copy {
     line-height: 145%;
+    margin-left: 10%;
+    margin-right: 10%;
+
 }
 
 /* ----------------------------------------------- */
@@ -220,7 +223,7 @@ a.navbar-brand {
 }
 
 .cart-items-container {
-    padding: 0 200px;
+    padding: 0 17%;
 }
 
 .card {
