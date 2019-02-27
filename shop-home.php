@@ -76,7 +76,7 @@
     </section>
 
     <!-- TESTIMONIAL SECTION -->
-    <section class="section-testimonials" id="features">
+    <section class="section-testimonials" id="testimonial">
         <div class="container">
             <h2 class="text-center line-under-text-white">Our customers can't live without us</h2>
             <div class="row">
