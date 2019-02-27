@@ -86,7 +86,7 @@
                         which leaves me with no time shopping for coffee, so Grinder is
                         a life-saver. Now that I got used ordering online, I couldn't live
                         without my daily cup!
-                        <cite><img src="img/customer-1.jpg" />Alberto
+                        <cite><img src="img/customer-1.jpg" alt="Customer Picture" />Alberto
                             Duncan</cite>
                     </blockquote>
                 </div>
@@ -96,7 +96,7 @@
                         right to my home. We have lots of coffee delivery here in
                         Cape Town, but no one comes even close to Grinder. Me and
                         my family are so in love!
-                        <cite><img src="img/customer-2.jpg" />Joana
+                        <cite><img src="img/customer-2.jpg" alt="Customer Picture" />Joana
                             Silva</cite>
                     </blockquote>
                 </div>
@@ -106,7 +106,7 @@
                         in Cape Town. I tried a lot of them and ended up with
                         Grinder. Best coffee delivery service in the country.
                         Keep up the great work!
-                        <cite><img src="img/customer-3.jpg" />Milton
+                        <cite><img src="img/customer-3.jpg" alt="Customer Picture" />Milton
                             Chapman</cite>
                     </blockquote>
                 </div>
