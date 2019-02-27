@@ -82,7 +82,7 @@
                     <p>
                         Not Yet a Member? <a href="signup.php">Sign Up.</a><br /><br />
 
-                        Copyright 2019 &copy; <a href="#" target="_blank">GRINDER</a><br />
+                        Copyright 2019 &copy; <a href="https://github.com/KeeganFargher/coffee-shop" target="_blank">GRINDER</a><br />
                         Built by: <a href="https://github.com/KeeganFargher" target="_blank">Keegan Fargher</a>
                     </p>
                 </div>
