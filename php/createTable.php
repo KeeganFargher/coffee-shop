@@ -1,5 +1,5 @@
 <?php
-    include("php/DBConn.php");
+    include_once("php/DBConn.php");
 
     remakeCoffeeStrengthTable($db);
     insertCoffeeStrengthData($db);

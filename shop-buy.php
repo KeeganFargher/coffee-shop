@@ -8,7 +8,7 @@
 
 <?php
     session_start();
-    include("php/DBConn.php");
+    include_once("php/DBConn.php");
 
     function generateShoppingTable($db, $card_style, $button_style, $coffee_strength)
     {

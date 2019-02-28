@@ -9,7 +9,7 @@
 <?php
         session_start();
 
-        include("php/DBConn.php");
+        include_once("php/DBConn.php");
         
         // Define variables and set to empty values
         $firstname = $lastname = $email = $password = "";
