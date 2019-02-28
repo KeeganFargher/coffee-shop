@@ -1,3 +1,11 @@
+<!--
+
+    Keegan Fargher
+    17920334
+    I confirm that this assignment is my own work and any work copied shall be referenced accordingly.
+
+-->
+
 <?php
     session_start();
     include("php/DBConn.php");
@@ -72,7 +80,7 @@
                 generateShoppingTable(
                     $db,
                     "card border-primary mb-3",
-"btn btn-primary button-card-black ",
+                    "btn btn-primary button-card-black ",
                     2);
             ?>
         </div>
