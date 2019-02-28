@@ -13,28 +13,30 @@
     function generateShoppingTable($db, $card_style, $button_style, $coffee_strength)
     {
         // Getting specific coffees
-        $sql = "SELECT * FROM tbl_item WHERE Coffee_Strength_Id = " . $coffee_strength;
+        $sql = "SELECT * FROM tbl_item WHERE Coffee_Strength_Id = {$coffee_strength}";
         $result = $db->query($sql);
 
         if ($result->num_rows > 0) {
             echo "<div class='row'>";
+
             while ($row = $result->fetch_assoc()) {
                 echo
                 "<div class='col-12 col-md-4 col-lg-3 card-padding'>" .
-                    "<div class='". $card_style ."'>" .
+                    "<div class='{$card_style}'>" .
                         // Item's picture
-                        "<img src='img/shop_coffee/". $row["ID"]. ".jpg' class='img-fluid' alt=''>" .
+                        "<img src='img/shop_coffee/{$row["ID"]}.jpg' class='img-fluid' alt=''>" .
 
                         // Item's Details
                         "<div class='card-body'>" .
-                            "<h5 class='card-title'>". $row["Name"] ."</h5>" .
+                            "<h5 class='card-title'>{$row["Name"]}</h5>" .
 
-                            "<p class='card-text'>R ". $row["Sell_Price"] ."</p>" .
-                            "<button id='". $row["ID"] ."' onClick='onClick($(this))' class='". $button_style ."'>Add To Cart</button>" .
+                            "<p class='card-text'>R {$row["Sell_Price"]}</p>" .
+                            "<button id='{$row["ID"]}' onClick='onClick($(this))' class='{$button_style}'>Add To Cart</button>" .
                             "</div>" .
                         "</div>" .
                     "</div>";
             }
+            
             echo "</div>";
         }
     }
