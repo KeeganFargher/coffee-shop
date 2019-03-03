@@ -1,3 +1,11 @@
+<!--
+
+    Keegan Fargher
+    17920334
+    I confirm that this assignment is my own work and any work copied shall be referenced accordingly.
+
+-->
+
 <?php
     session_start();
 ?>
@@ -6,7 +14,7 @@
 <html lang="en">
 
 <head>
-    <?php include("meta.php") ?>
+    <?php include_once("meta.php") ?>
 
     <title>Grinder | Admin</title>
 </head>
@@ -16,7 +24,7 @@
         <div class="loader"></div>
     </div>
 
-    <?php require("header.php"); ?>
+    <?php include_once("header.php"); ?>
 
     <div class="coming-soon-container">
         <div class="coming-soon-middle">

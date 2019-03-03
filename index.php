@@ -1,8 +1,16 @@
+<!--
+
+    Keegan Fargher
+    17920334
+    I confirm that this assignment is my own work and any work copied shall be referenced accordingly.
+
+-->
+
 <?php
         session_unset();
         session_start();
 
-        include("php/DBConn.php");
+        include_once("php/DBConn.php");
         //include("php/createTable.php");
 
         // Define variables and set to empty values
@@ -90,6 +98,7 @@
         </div>
     </div>
 </body>
+
 <!-- JAVASCRIPT REQUIRED -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>

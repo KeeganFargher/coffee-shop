@@ -1,7 +1,15 @@
+<!--
+
+    Keegan Fargher
+    17920334
+    I confirm that this assignment is my own work and any work copied shall be referenced accordingly.
+
+-->
+
 <?php
         session_start();
 
-        include("php/DBConn.php");
+        include_once("php/DBConn.php");
         
         // Define variables and set to empty values
         $firstname = $lastname = $email = $password = "";
