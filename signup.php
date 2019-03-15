@@ -17,19 +17,21 @@
 
         if (isset($_POST['submit'])) {
 
-            // Validate the user's input
+            // Validate First Name
             if (empty($_POST["register-firstname"])) {
                 $firstnameError = "First Name is Required";
             } else {
                 $firstname = test_input($_POST["register-firstname"]);
             }
 
+            // Validate Last Name
             if (empty($_POST["register-lastname"])) {
                 $lastnameError = "Last Name is Required";
             } else {
                 $lastname = test_input($_POST["register-lastname"]);
             }
 
+            // Validate Email
             if (empty($_POST["register-email"])) {
                 $emailError = "Email is Required";
             } else {
@@ -41,6 +43,7 @@
                 }
             }
 
+            //  Validate Password
             if (empty($_POST["register-password"])) {
                 $passwordError = "Password is Required";
             } else {
@@ -64,6 +67,7 @@
                 if ($resultCheck > 0) {
                     $emailError = "Email Already Taken";
                 } else {
+                    //  SHA over MD5 because MD5 is no longer secure
                     $sql = "INSERT into tbl_user (FName, LName, Email, Password) VALUES (?, ?, ?, SHA(?))";
                     $stmt = mysqli_stmt_init($db);
                     mysqli_stmt_prepare($stmt, $sql);
