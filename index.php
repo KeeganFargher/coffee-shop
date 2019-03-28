@@ -70,12 +70,14 @@
                     <div class="form-group">
 
                         <!-- Email -->
-                        <label for="username">Email</label>
-                        <input type="text" class="input-text form-control mb-3" name="email" value="<?php echo $email ?>" />
+                        <label for="email">Email</label>
+                        <input type="email" class="input-text form-control mb-3" name="email"
+                            value="<?php echo $email ?>" />
 
                         <!-- Password -->
                         <label for="password">Password</label>
-                        <input type="password" class="input-text form-control" name="password" />
+                        <input type="password" class="input-text form-control" name="password"
+                            value="<?php echo $password ?>" />
 
                         <div class="invalid-feedback">
                             <?php echo $error ?>
@@ -90,7 +92,8 @@
                     <p>
                         Not Yet a Member? <a href="signup.php">Sign Up.</a><br /><br />
 
-                        Copyright 2019 &copy; <a href="https://github.com/KeeganFargher/coffee-shop" target="_blank">GRINDER</a><br />
+                        Copyright 2019 &copy; <a href="https://github.com/KeeganFargher/coffee-shop"
+                            target="_blank">GRINDER</a><br />
                         Built by: <a href="https://github.com/KeeganFargher" target="_blank">Keegan Fargher</a>
                     </p>
                 </div>
