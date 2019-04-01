@@ -349,7 +349,7 @@ a.navbar-brand {
 }
 
 .card-body {
-    min-height: 160px;
+    min-height: 200px;
 }
 
 .card button {
@@ -360,6 +360,17 @@ a.navbar-brand {
 
     margin: auto;
     width: 90%;
+}
+
+.card-title {
+    font-variant: small-caps;
+    text-transform: none;
+    font-size: 1.1rem;
+    min-height: 40px;
+}
+
+.card-text {
+    color: #a3a3a3;
 }
 
 .button-card-white {
