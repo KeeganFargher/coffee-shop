@@ -10,7 +10,7 @@ function addToCartOnClick(e) {
 			id: cartItemId
 		},
 		beforeSend: function() {
-			var loader = "<div class='spinner' style='font-size: 2.5px;'></div>";
+			var loader = "<div class='spinner-dark' style='font-size: 2.5px;'></div>";
 			cartItem.innerHTML = loader;
 		},
 		success: function(data) {
