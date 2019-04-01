@@ -7,40 +7,12 @@
 -->
 
 <?php
-        session_unset();
-        session_start();
+session_unset();
+session_start();
 
-        include_once("php/DBConn.php");
-        //include("php/createTable.php");
-
-        // Define variables and set to empty values
-        $email = $password = $error = "";
-
-        if (isset($_POST['submit'])) {
-
-            // Getting email and password
-            $email = mysqli_real_escape_string($db, $_POST['email']);
-            $password = mysqli_real_escape_string($db, $_POST['password']);
-
-            $sql = "SELECT ID, FName, LName FROM tbl_user WHERE email = '$email' and password = SHA('$password')";
-            $result = $db->query($sql);
-            $row = $result->fetch_assoc();
-
-            $count = mysqli_num_rows($result);
-
-            // If result matched, table row must be 1 row
-            if($count == 1) {
-                $_SESSION['userId'] = $row['ID'];
-                $_SESSION['firstName'] = $row['FName'];
-                $_SESSION['isSignedIn'] = true;
-
-                $error = "";
-
-                header("location: shop-home.php");
-            } else {
-                $error = "Incorrect Email and/or Password";
-            }
-        }
+include_once("php/DBConn.php");
+//include_once("php/createTable.php");
+include_once("php/index-script.php");
 ?>
 
 <!DOCTYPE html>
@@ -54,11 +26,6 @@
 </head>
 
 <body>
-
-    <div class="loader-background">
-        <div class="loader"></div>
-    </div>
-
     <div class="login-html">
         <div class="signin-wrapper">
             <div class="signin-box">
@@ -85,7 +52,8 @@
 
                         <!-- Login Button -->
                         <div class="login-button">
-                            <button type="submit" name="submit" id="submit" class="btn btn-primary">LOGIN</button>
+                            <button onClick="showLoader()" type="submit" name="submit" id="submit"
+                                class="btn btn-primary">LOGIN</button>
                         </div>
                 </form>
                 <div class="text-center">
@@ -107,6 +75,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="https://unpkg.com/ionicons@4.4.8/dist/ionicons.js"></script>
-<script src="js/loader.js"></script>
+<script src="js/login.js"></script>
 
 </html>

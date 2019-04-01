@@ -20,8 +20,12 @@
 </head>
 
 <body>
+    <!-- LOADING CIRCLE -->
     <div class="loader-background">
-        <div class="loader"></div>
+        <div class="loader">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
     </div>
 
     <?php include_once("header.php"); ?>

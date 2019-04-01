@@ -9,40 +9,7 @@
 <?php
     session_start();
     include_once("php/DBConn.php");
-
-    function generateShoppingTable($db, $card_style, $button_style, $coffee_strength)
-    {
-        // Getting specific coffees
-        $sql = "SELECT * FROM tbl_item WHERE Coffee_Strength_Id = {$coffee_strength}";
-        $result = $db->query($sql);
-
-        if ($result->num_rows < 0) { return; }
-
-        //  Opening row
-        echo "<div class='row'>";
-
-        while ($row = $result->fetch_assoc()) {
-            echo
-            "<div class='col-12 col-md-4 col-lg-3 card-padding'>" .
-                "<div class='{$card_style}'>" .
-                    // Item's picture
-                    "<img src='img/shop_coffee/{$row['ID']}.jpg' class='img-fluid' alt='Thumbnail of coffee beans'>" .
-
-                    // Item's Details
-                    "<div class='card-body'>" .
-                        "<h5 class='card-title'>{$row['Name']}</h5>" .
-
-                        "<p class='card-text'>R {$row['Sell_Price']}</p>" .
-                        "<button id='{$row['ID']}' onClick='onClick($(this))' class='{$button_style}'>Add To Cart</button>" .
-                        "</div>" .
-                    "</div>" .
-                "</div>";
-        }
-        
-        // Closing row
-        echo "</div>";
-        
-    }
+    include_once("php/shop-buy-script.php");
 ?>
 
 <!DOCTYPE html>
@@ -55,8 +22,12 @@
 </head>
 
 <body>
+    <!-- LOADING CIRCLE -->
     <div class="loader-background">
-        <div class="loader"></div>
+        <div class="loader">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
     </div>
 
     <?php require("header.php"); ?>
@@ -116,31 +87,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="js/loader.js"></script>
-    <script>
-        function onClick(e) {
-            let cartItemId = e[0].id;
-
-            $.ajax({
-                url: 'php/addToCart.php',
-                type: 'POST',
-                data: {
-                    'id': cartItemId
-                },
-                success: function (data) {
-                    $("#price").text('R' + data);
-                    $("#modal").show();
-                },
-                error: function (error) {
-                    $("#price").text('There was an error displaying the price!');
-                    $("#modal").show();
-                }
-            });
-        }
-
-        function closeModal() {
-            $("#modal").hide();
-        }
-    </script>
+    <script src="js/shop-buy.js"></script>
 
 
 </body>

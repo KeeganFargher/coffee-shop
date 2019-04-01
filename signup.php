@@ -7,93 +7,10 @@
 -->
 
 <?php
-        session_start();
+    session_start();
 
-        include_once("php/DBConn.php");
-        
-        // Define variables and set to empty values
-        $firstname = $lastname = $email = $password = "";
-        $firstnameError = $lastnameError = $emailError = $passwordError = "";
-
-        if (isset($_POST['submit'])) {
-
-            // Validate First Name
-            if (empty($_POST["register-firstname"])) {
-                $firstnameError = "First Name is Required";
-            } else {
-                $firstname = test_input($_POST["register-firstname"]);
-            }
-
-            // Validate Last Name
-            if (empty($_POST["register-lastname"])) {
-                $lastnameError = "Last Name is Required";
-            } else {
-                $lastname = test_input($_POST["register-lastname"]);
-            }
-
-            // Validate Email
-            if (empty($_POST["register-email"])) {
-                $emailError = "Email is Required";
-            } else {
-                $email = test_input($_POST["register-email"]);
-
-                // Check if e-mail address is correct format
-                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    $emailError = "Invalid Email Format";
-                }
-            }
-
-            //  Validate Password
-            if (empty($_POST["register-password"])) {
-                $passwordError = "Password is Required";
-            } else {
-                $password = test_input($_POST["register-password"]);
-            }
-
-            //  Don't continue from this point on if any fields aren't validated
-            if (!empty($firstname) && !empty($lastname) && !empty($email) && !empty($password) ) {
-
-                //  Checking if the email address already exists
-                //  Using prepared statements to prevent SQL injection
-                //  https://youtu.be/LC9GaXkdxF8?t=3285
-                $sql = "SELECT * FROM tbl_user WHERE Email=?";
-                $stmt = mysqli_stmt_init($db);
-                mysqli_stmt_prepare($stmt, $sql);
-                mysqli_stmt_bind_param($stmt, "s", $email);
-                mysqli_stmt_execute($stmt);
-                mysqli_stmt_store_result($stmt);
-
-                $resultCheck = mysqli_stmt_num_rows($stmt);
-                if ($resultCheck > 0) {
-                    $emailError = "Email Already Taken";
-                } else {
-                    //  SHA over MD5 because MD5 is no longer secure
-                    $sql = "INSERT into tbl_user (FName, LName, Email, Password) VALUES (?, ?, ?, SHA(?))";
-                    $stmt = mysqli_stmt_init($db);
-                    mysqli_stmt_prepare($stmt, $sql);
-                    mysqli_stmt_bind_param($stmt, "ssss", $firstname, $lastname, $email, $password);
-                    mysqli_stmt_execute($stmt);
-                    mysqli_stmt_store_result($stmt);
-
-                    $_SESSION['userId'] = mysqli_stmt_insert_id($stmt);
-                    $_SESSION['firstName'] = $firstname;
-                    $_SESSION['isSignedIn'] = true;
-                    header("location: shop-home.php");
-                }
-            }
-
-        }
-
-        /* 
-        Removes any bad things from the data
-        https://www.w3schools.com/php/php_form_validation.asp
-        */
-        function test_input($data) {
-            $data = trim($data);
-            $data = stripslashes($data);
-            $data = htmlspecialchars($data);
-            return $data;
-        }
+    include_once("php/DBConn.php");
+    include_once("php/signup-script.php");
 ?>
 
 
@@ -108,9 +25,12 @@
 </head>
 
 <body>
-
+    <!-- LOADING CIRCLE -->
     <div class="loader-background">
-        <div class="loader"></div>
+        <div class="loader">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
     </div>
 
     <div class="login-html">
@@ -127,7 +47,8 @@
                             <!-- First Name -->
                             <div class="col-12 col-sm-6">
                                 <label for="register-firstname">First Name</label>
-                                <input type="text" class="input-text form-control" name="register-firstname" value="<?php echo $firstname ?>" />
+                                <input type="text" class="input-text form-control" name="register-firstname"
+                                    value="<?php echo $firstname ?>" />
                                 <div class="invalid-feedback mb-3">
                                     <?php echo $firstnameError ?>
                                 </div>
@@ -136,7 +57,8 @@
                             <!-- Last Name -->
                             <div class="col-12 col-sm-6">
                                 <label for="register-lastname">Last Name</label>
-                                <input type="text" class="input-text form-control" name="register-lastname" value="<?php echo $lastname ?>" />
+                                <input type="text" class="input-text form-control" name="register-lastname"
+                                    value="<?php echo $lastname ?>" />
                                 <div class="invalid-feedback  mb-3">
                                     <?php echo $lastnameError ?>
                                 </div>
@@ -145,7 +67,8 @@
                             <!-- Email -->
                             <div class="col-12 col-sm-6">
                                 <label for="register-email">Email</label>
-                                <input type="text" class="input-text form-control" name="register-email" value="<?php echo $email ?>" />
+                                <input type="text" class="input-text form-control" name="register-email"
+                                    value="<?php echo $email ?>" />
                                 <div class="invalid-feedback  mb-3">
                                     <?php echo $emailError ?>
                                 </div>
@@ -154,7 +77,8 @@
                             <!-- Password -->
                             <div class="col-12 col-sm-6">
                                 <label for="register-password">Password</label>
-                                <input autocomplete="new-password" type="password" class="input-text form-control" name="register-password" />
+                                <input autocomplete="new-password" type="password" class="input-text form-control"
+                                    name="register-password" />
                                 <div class="invalid-feedback">
                                     <?php echo $passwordError ?>
                                 </div>
@@ -170,7 +94,8 @@
                 </form>
                 <div class="text-center">
                     <p>
-                        Copyright 2019 &copy; <a href="#" target="_blank">GRINDER</a><br />
+                        Copyright 2019 &copy; <a href="https://github.com/KeeganFargher/coffee-shop"
+                            target="_blank">GRINDER</a><br />
                         Built by: <a href="https://github.com/KeeganFargher" target="_blank">Keegan Fargher</a>
                     </p>
                 </div>

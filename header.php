@@ -27,18 +27,23 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <?php 
-                    if (isset($_SESSION['isSignedIn']) && $_SESSION['isSignedIn'] === true) {
-                        echo 
-                        "<li class='text-center text-lg-right'><a href='#' class='mr-0 mr-lg-4 mb-3 mb-sm-0'>Welcome " . $_SESSION["firstName"] ."</a></li>
-                        <li class='text-center text-lg-right'><a href='index.php' class='mr-0 mr-lg-4'>Logout</a></li>";
-                    } else {
-                        echo 
-                        "<li class='text-center text-lg-right'><a href='index.php' class='mr-0 mr-lg-4'>Login</a></li>
-                        <li class='text-center text-lg-right'><a href='signup.php' class='mr-0 mr-lg-4'>Sign Up</a></li>";
-                    }
-                ?>
-
+                <?php if (isset($_SESSION['isSignedIn']) && $_SESSION['isSignedIn'] === true) { ?>
+                <!-- Display this if you are logged in -->
+                <li class='text-center text-lg-right'>
+                    <a href='#' class='mr-0 mr-lg-4 mb-3 mb-sm-0'>Welcome <?php echo $_SESSION["firstName"] ?></a>
+                </li>
+                <li class='text-center text-lg-right'>
+                    <a href='index.php' class='mr-0 mr-lg-4'>Logout</a>
+                </li>
+                <?php } else { ?>
+                <!-- Display this if you are NOT logged in -->
+                <li class='text-center text-lg-right'>
+                    <a href='index.php' class='mr-0 mr-lg-4'>Login</a>
+                </li>
+                <li class='text-center text-lg-right'>
+                    <a href='signup.php' class='mr-0 mr-lg-4'>Sign Up</a>
+                </li>
+                <?php } ?>
             </ul>
         </div>
     </div>

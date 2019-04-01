@@ -20,8 +20,12 @@
 </head>
 
 <body>
+    <!-- LOADING CIRCLE -->
     <div class="loader-background">
-        <div class="loader"></div>
+        <div class="loader">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
     </div>
 
     <?php include_once("header.php"); ?>
@@ -167,10 +171,6 @@
     <?php include_once("footer.php"); ?>
 
     <!-- JAVASCRIPT REQUIRED -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="https://unpkg.com/ionicons@4.4.8/dist/ionicons.js"></script>
     <script src="js/jquery.waypoints.min.js"></script>
     <script src="js/loader.js"></script>
     <script src="js/main.js"></script>
