@@ -16,29 +16,32 @@
         $sql = "SELECT * FROM tbl_item WHERE Coffee_Strength_Id = {$coffee_strength}";
         $result = $db->query($sql);
 
-        if ($result->num_rows > 0) {
-            echo "<div class='row'>";
+        if ($result->num_rows < 0) { return; }
 
-            while ($row = $result->fetch_assoc()) {
-                echo
-                "<div class='col-12 col-md-4 col-lg-3 card-padding'>" .
-                    "<div class='{$card_style}'>" .
-                        // Item's picture
-                        "<img src='img/shop_coffee/{$row["ID"]}.jpg' class='img-fluid' alt=''>" .
+        //  Opening row
+        echo "<div class='row'>";
 
-                        // Item's Details
-                        "<div class='card-body'>" .
-                            "<h5 class='card-title'>{$row["Name"]}</h5>" .
+        while ($row = $result->fetch_assoc()) {
+            echo
+            "<div class='col-12 col-md-4 col-lg-3 card-padding'>" .
+                "<div class='{$card_style}'>" .
+                    // Item's picture
+                    "<img src='img/shop_coffee/{$row['ID']}.jpg' class='img-fluid' alt='Thumbnail of coffee beans'>" .
 
-                            "<p class='card-text'>R {$row["Sell_Price"]}</p>" .
-                            "<button id='{$row["ID"]}' onClick='onClick($(this))' class='{$button_style}'>Add To Cart</button>" .
-                            "</div>" .
+                    // Item's Details
+                    "<div class='card-body'>" .
+                        "<h5 class='card-title'>{$row['Name']}</h5>" .
+
+                        "<p class='card-text'>R {$row['Sell_Price']}</p>" .
+                        "<button id='{$row['ID']}' onClick='onClick($(this))' class='{$button_style}'>Add To Cart</button>" .
                         "</div>" .
-                    "</div>";
-            }
-            
-            echo "</div>";
+                    "</div>" .
+                "</div>";
         }
+        
+        // Closing row
+        echo "</div>";
+        
     }
 ?>
 
@@ -88,7 +91,8 @@
         </div>
     </div>
 
-    <div class="modal">
+    <!-- MODAL -->
+    <div class="modal" id="modal">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -124,16 +128,17 @@
                 },
                 success: function (data) {
                     $("#price").text('R' + data);
-                    $(".modal").show();
+                    $("#modal").show();
                 },
                 error: function (error) {
-                    console.log(error)
+                    $("#price").text('There was an error displaying the price!');
+                    $("#modal").show();
                 }
             });
         }
 
         function closeModal() {
-            $(".modal").hide();
+            $("#modal").hide();
         }
     </script>
 
