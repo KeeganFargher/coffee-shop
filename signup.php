@@ -7,8 +7,6 @@
 -->
 
 <?php
-    session_start();
-
     include_once("php/DBConn.php");
     include_once("php/signup-script.php");
 ?>
@@ -40,7 +38,7 @@
                 <h3 class="signin-title-secondary text-center">Sign Up</h3>
 
                 <!-- BEGIN FORM -->
-                <form action="" method="post" autocomplete="off">
+                <form action="php/signup-script.php" method="post" autocomplete="off">
                     <div class="form-group has-danger">
                         <div class="row">
 
@@ -48,9 +46,10 @@
                             <div class="col-12 col-sm-6">
                                 <label for="register-firstname">First Name</label>
                                 <input type="text" class="input-text form-control" name="register-firstname"
-                                    value="<?php echo $firstname ?>" />
+                                    value="<?php if(isset($_GET['firstname'])) { echo $_GET['firstname']; } ?>" />
+
                                 <div class="invalid-feedback mb-3">
-                                    <?php echo $firstnameError ?>
+                                    <?php if(isset($_GET['firstnameError'])) { echo $_GET['firstnameError']; } ?>
                                 </div>
                             </div>
 
@@ -58,9 +57,9 @@
                             <div class="col-12 col-sm-6">
                                 <label for="register-lastname">Last Name</label>
                                 <input type="text" class="input-text form-control" name="register-lastname"
-                                    value="<?php echo $lastname ?>" />
+                                    value="<?php if(isset($_GET['lastname'])) { echo $_GET['lastname']; }?>" />
                                 <div class="invalid-feedback  mb-3">
-                                    <?php echo $lastnameError ?>
+                                    <?php if(isset($_GET['lastnameError'])) { echo $_GET['lastnameError']; } ?>
                                 </div>
                             </div>
 
@@ -68,9 +67,9 @@
                             <div class="col-12 col-sm-6">
                                 <label for="register-email">Email</label>
                                 <input type="text" class="input-text form-control" name="register-email"
-                                    value="<?php echo $email ?>" />
+                                    value="<?php if(isset($_GET['email'])) { echo $_GET['email']; }?>" />
                                 <div class="invalid-feedback  mb-3">
-                                    <?php echo $emailError ?>
+                                    <?php if(isset($_GET['emailError'])) { echo $_GET['emailError']; } ?>
                                 </div>
                             </div>
 
@@ -78,9 +77,10 @@
                             <div class="col-12 col-sm-6">
                                 <label for="register-password">Password</label>
                                 <input autocomplete="new-password" type="password" class="input-text form-control"
-                                    name="register-password" />
+                                    name="register-password"
+                                    value="<?php if(isset($_GET['password'])) { echo $_GET['password']; }?>" />
                                 <div class="invalid-feedback">
-                                    <?php echo $passwordError ?>
+                                    <?php if(isset($_GET['passwordError'])) { echo $_GET['passwordError']; } ?>
                                 </div>
                             </div>
 

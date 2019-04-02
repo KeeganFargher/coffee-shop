@@ -1,4 +1,7 @@
 <?php
+session_start();
+include_once("DBConn.php");
+
 // Define variables and set to empty values
 $email = $password = $error = "";
 
@@ -22,9 +25,10 @@ if (isset($_POST['submit'])) {
 
         $error = "";
 
-        header("location: shop-home.php");
+        header("location: ../shop-home.php");
     } else {
         $error = "Incorrect Email and/or Password";
+        header("location: ../index.php?email=".$email."&password=".$password."&error=".$error);
     }
 }
 ?>

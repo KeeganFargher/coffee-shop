@@ -7,10 +7,9 @@
 -->
 
 <?php
-session_unset();
 session_start();
+session_destroy();
 
-include_once("php/DBConn.php");
 //include_once("php/createTable.php");
 include_once("php/index-script.php");
 ?>
@@ -19,7 +18,7 @@ include_once("php/index-script.php");
 <html lang="en">
 
 <head>
-    <?php include("meta.php") ?>
+    <?php include_once("meta.php") ?>
     <link href="css/login.css" rel="stylesheet" />
 
     <title>Grinder | Login</title>
@@ -33,21 +32,21 @@ include_once("php/index-script.php");
                 <h3 class="signin-title-secondary text-center">Sign in to continue.</h3>
 
                 <!-- BEGIN FORM -->
-                <form action="" method="post">
+                <form action="php/index-script.php" method="post">
                     <div class="form-group">
 
                         <!-- Email -->
                         <label for="email">Email</label>
                         <input type="email" class="input-text form-control mb-3" name="email"
-                            value="<?php echo $email ?>" />
+                            value="<?php if(isset($_GET['email'])) { echo $_GET['email']; } ?>" />
 
                         <!-- Password -->
                         <label for="password">Password</label>
                         <input type="password" class="input-text form-control" name="password"
-                            value="<?php echo $password ?>" />
+                            value="<?php if(isset($_GET['password'])) { echo $_GET['password']; } ?>" />
 
                         <div class="invalid-feedback">
-                            <?php echo $error ?>
+                            <?php if(isset($_GET['error'])) { echo $_GET['error']; } ?>
                         </div>
 
                         <!-- Login Button -->
