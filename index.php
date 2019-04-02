@@ -10,7 +10,7 @@
 session_start();
 session_destroy();
 
-include_once("php/createTable.php");
+//include_once("php/createTable.php");
 include_once("php/index-script.php");
 ?>
 
