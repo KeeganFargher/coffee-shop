@@ -29,8 +29,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <?php if (isset($_SESSION['isSignedIn']) && $_SESSION['isSignedIn'] === true) { ?>
                 <!-- Display this if you are logged in -->
-                <li class='text-center text-lg-right'>
-                    <a href='#' class='mr-0 mr-lg-4 mb-3 mb-sm-0'>Welcome <?php echo $_SESSION["firstName"] ?></a>
+                <li class='text-center text-lg-right mb-2 mb-sm-0'>
+                    <a href='#' class='mr-0 mr-lg-4'>Welcome <?php echo $_SESSION["firstName"] ?></a>
                 </li>
                 <li class='text-center text-lg-right'>
                     <a href='index.php' class='mr-0 mr-lg-4'>Logout</a>

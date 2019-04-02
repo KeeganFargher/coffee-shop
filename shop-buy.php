@@ -1,12 +1,11 @@
-<!--
+<?php
 
+    /*
     Keegan Fargher
     17920334
     I confirm that this assignment is my own work and any work copied shall be referenced accordingly.
+    */
 
--->
-
-<?php
     session_start();
     include_once("php/DBConn.php");
     include_once("php/shop-buy-script.php");
@@ -42,6 +41,8 @@
                     $db,
                     "card text-white bg-primary mb-3",
                     "btn btn-outline-secondary button-card-white",
+                    "",
+                    "",
                     1);
             ?>
         </div>
@@ -57,6 +58,8 @@
                     $db,
                     "card border-primary mb-3",
                     "btn btn-primary button-card-black ",
+                    "text-dark",
+                    "text-grey",
                     2);
             ?>
         </div>

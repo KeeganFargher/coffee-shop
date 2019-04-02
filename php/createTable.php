@@ -47,6 +47,7 @@ function remakeItemTable($db) {
         CREATE TABLE IF NOT EXISTS `tbl_item` (
         `ID` int(11) NOT NULL AUTO_INCREMENT,
         `Name` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+        `Description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
         `Cost_Price` decimal(15,2) NOT NULL,
         `Quantity` int(11) NOT NULL,
         `Sell_Price` decimal(15,2) NOT NULL,
@@ -62,18 +63,18 @@ function insertItemData($db) {
     // Open File
     $file = fopen("data/item.txt", "r") or die("Unable to open file!");
 
-    $insertQuery = "INSERT INTO tbl_item (Name, Cost_Price, Quantity, Sell_Price, Coffee_Strength_Id) VALUES ";
+    $insertQuery = "INSERT INTO tbl_item (Name, Cost_Price, Quantity, Sell_Price, Coffee_Strength_Id, Description) VALUES ";
 
     // Output one line at a time
     while (!feof($file)) {
 
         // Split the row into an array
-        $split = explode(",", fgets($file));
+        $split = explode("@", fgets($file));
 
         // We are inserting multiple rows at a time rather than one insert statement per row
         // because it is much faster.
         // https://stackoverflow.com/questions/779986/insert-multiple-rows-via-a-php-array-into-mysql/780046#780046
-        $insertQuery = $insertQuery . "('$split[0]', $split[1], $split[2], $split[3], $split[4]), ";
+        $insertQuery = $insertQuery . "('$split[0]', $split[1], $split[2], $split[3], $split[4], '$split[5]'), ";
     }
     fclose($file);
 

@@ -19,7 +19,6 @@ I confirm that this assignment is my own work and any work copied shall be refer
         padding: 0 80px;
     }
 
-
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -39,6 +38,14 @@ I confirm that this assignment is my own work and any work copied shall be refer
     li.nav-item.text-center.text-lg-right {
         margin: auto !important;
     }
+
+    .card-title {
+        font-size: 1rem;
+    }
+
+    .card-description {
+        font-size: 0.7rem;
+    }
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -56,6 +63,13 @@ I confirm that this assignment is my own work and any work copied shall be refer
         padding: 0 70px;
     }
 
+    .card-title {
+        font-size: 1.3rem;
+    }
+
+    .card-description {
+        font-size: 0.9rem;
+    }
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -79,5 +93,13 @@ I confirm that this assignment is my own work and any work copied shall be refer
     section {
         padding-left: 6%;
         padding-right: 6%;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+    }
+
+    .card-description {
+        font-size: 0.9rem;
     }
 }

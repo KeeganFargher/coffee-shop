@@ -27,6 +27,7 @@ section {
 
 body {
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
 /* ----------------------------------------------- */
@@ -76,6 +77,10 @@ body {
     padding-right: 40px;
 }
 
+.text-grey {
+    color: #9c9c9c !important;
+}
+
 .loading {
     background: transparent url('../img/loader.gif') center no-repeat;
     min-height: 150px;
@@ -84,11 +89,12 @@ body {
 /* MAIN LOADING ICON */
 
 .loader-background {
-    position: sticky;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     background: #1a1a1a;
     z-index: 99999;
+    top: 0;
 }
 
 .loader {
@@ -350,6 +356,9 @@ a.navbar-brand {
 
 .card-body {
     min-height: 200px;
+    font-family: 'Raleway',
+        'Arial',
+        sans-serif !important;
 }
 
 .card button {
@@ -357,29 +366,55 @@ a.navbar-brand {
     left: 0;
     right: 0;
     bottom: 10px;
-
     margin: auto;
     width: 90%;
+    padding: 0.35rem 2rem;
 }
 
 .card-title {
     font-variant: small-caps;
     text-transform: none;
     font-size: 1.1rem;
-    min-height: 40px;
+    min-height: 30px;
+    margin-bottom: 0.5rem;
 }
 
-.card-text {
+.card-title:after {
+    display: block;
+    height: 2px;
+    background-color: rgb(128, 128, 128);
+    content: ' ';
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.card-price {
     color: #a3a3a3;
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+    font-weight: 400;
+    display: none;
+}
+
+.card-description {
+    text-transform: capitalize;
+    font-style: italic;
+    font-weight: 500;
+    color: #bdbdbd;
+    font-size: 0.8rem;
 }
 
 .button-card-white {
     border-color: white;
     color: white;
+    font-weight: 500;
 }
 
 .button-card-black {
     border: solid 2px #1a1a1a;
+    font-weight: 500;
 }
 
 .button-card-white:not([disabled]):not(.disabled):hover,
