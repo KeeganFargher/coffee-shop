@@ -7,7 +7,6 @@
 -->
 
 <?php
-    include_once("php/DBConn.php");
     include_once("php/signup-script.php");
 ?>
 

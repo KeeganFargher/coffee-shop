@@ -1,5 +1,14 @@
+<!--
+
+    Keegan Fargher
+    17920334
+    I confirm that this assignment is my own work and any work copied shall be referenced accordingly.
+
+-->
+
 <?php
     session_start();
+    include_once("DBConn.php");
 
     // Define variables and set to empty values
     $firstname = $lastname = $email = $password = "";
@@ -8,83 +17,26 @@
 
     if (isset($_POST['submit'])) {
 
-        // Validate First Name
-        if (empty($_POST["register-firstname"])) {
-            $firstnameError = "First Name is Required";
-            $error = true;
-        } else {
-            $firstname = test_input($_POST["register-firstname"]);
-        }
+        validate_first_name($firstname, $firstnameError, $error);
+        validate_last_name($lastname, $lastnameError, $error);
+        validate_email($email, $emailError, $error);
+        validate_password($password, $passwordError, $error);
 
-        // Validate Last Name
-        if (empty($_POST["register-lastname"])) {
-            $lastnameError = "Last Name is Required";
-            $error = true;
-        } else {
-            $lastname = test_input($_POST["register-lastname"]);
-        }
-
-        // Validate Email
-        if (empty($_POST["register-email"])) {
-            $emailError = "Email is Required";
-            $error = true;
-        } else {
-            $email = test_input($_POST["register-email"]);
-
-            // Check if e-mail address is correct format
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $emailError = "Invalid Email Format";
-                $error = true;
-            }
-        }
-
-        // Validate Password
-        if (empty($_POST["register-password"])) {
-            $passwordError = "Password is Required";
-            $error = true;
-        } else {
-            $password = test_input($_POST["register-password"]);
-        }
-
-        // Checking if the email address already exists
+        // Checking if the email address already exists and
         // Using prepared statements to prevent SQL injection
         // https://youtu.be/LC9GaXkdxF8?t=3285
-        if ($error === false ) {
-            $sql = "SELECT * FROM tbl_user WHERE Email=?";
-            $stmt = mysqli_stmt_init($db);
-            mysqli_stmt_prepare($stmt, $sql);
-            mysqli_stmt_bind_param($stmt, "s", $email);
-            mysqli_stmt_execute($stmt);
-            mysqli_stmt_store_result($stmt);
-
-            $resultCheck = mysqli_stmt_num_rows($stmt);
-            if ($resultCheck > 0) {
-                $emailError = "Email Already Taken";
-                $error = true;
-
-                header("location: ../signup.php?email=".$email."&password=".$password."&firstname=".$firstname."&lastname=".$lastname."&passwordError=".$passwordError."&firstnameError=".$firstnameError."&lastnameError=".$lastnameError."&emailError=".$emailError);
-                return;
-            }
+        if (!$error) {
+            check_if_email_exists($db, $email, $emailError, $error);
         }
 
-        if ($error === true) {
+        //  If we have errors then go back
+        if ($error) {
             header("location: ../signup.php?email=".$email."&password=".$password."&firstname=".$firstname."&lastname=".$lastname."&passwordError=".$passwordError."&firstnameError=".$firstnameError."&lastnameError=".$lastnameError."&emailError=".$emailError);
             return;
+        } else {
+            create_user($firstname, $lastname, $email, $password, $db);
+            header("location: ../shop-home.php");
         }
-
-        // SHA over MD5 because MD5 is no longer secure
-        $sql = "INSERT into tbl_user (FName, LName, Email, Password) VALUES (?, ?, ?, SHA(?))";
-        $stmt = mysqli_stmt_init($db);
-        mysqli_stmt_prepare($stmt, $sql);
-        mysqli_stmt_bind_param($stmt, "ssss", $firstname, $lastname, $email, $password);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_store_result($stmt);
-
-        $_SESSION['userId'] = mysqli_stmt_insert_id($stmt);
-        $_SESSION['firstName'] = $firstname;
-        $_SESSION['isSignedIn'] = true;
-
-        header("location: ../shop-home.php");
     }
 
     /*
@@ -98,5 +50,85 @@
         //  Remove ',' so it doesn't conflict when we use explode() later
         $data = str_replace(",", "", $data);
         return $data;
+    }
+
+    function validate_first_name(&$firstname, &$firstnameError, &$error) {
+        if (empty($_POST["register-firstname"])) {
+            $firstnameError = "First Name is Required";
+            $error = true;
+        } else {
+            $firstname = test_input($_POST["register-firstname"]);
+        }
+    }
+
+    function validate_last_name(&$lastname, &$lastnameError, &$error) {
+        if (empty($_POST["register-lastname"])) {
+            $lastnameError = "Last Name is Required";
+            $error = true;
+        } else {
+            $lastname = test_input($_POST["register-lastname"]);
+        }
+    }
+
+    function validate_email(&$email, &$emailError, &$error) {
+        if (empty($_POST["register-email"])) {
+            $emailError = "Email is Required";
+            $error = true;
+        } else {
+            $email = test_input($_POST["register-email"]);
+
+            // Check if e-mail address is correct format
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $emailError = "Invalid Email Format";
+                $error = true;
+            }
+        }
+    }
+
+    function validate_password(&$password, &$passwordError, &$error) {
+        if (empty($_POST["register-password"])) {
+            $passwordError = "Password is Required";
+            $error = true;
+        } else {
+            $password = test_input($_POST["register-password"]);
+        }
+    }
+
+    function check_if_email_exists($db, $email, &$emailError, &$error) {
+        $sql = "SELECT * FROM tbl_user WHERE Email=?";
+        $stmt = mysqli_stmt_init($db);
+        mysqli_stmt_prepare($stmt, $sql);
+        mysqli_stmt_bind_param($stmt, "s", $email);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_store_result($stmt);
+
+        $resultCheck = mysqli_stmt_num_rows($stmt);
+        if ($resultCheck > 0) {
+            $emailError = "Email Already Taken";
+            $error = true;
+        }
+    }
+
+    function create_user($firstname, $lastname, $email, $password, $db) {
+
+        // Salt password
+        $salt = sha1(microtime());
+        $passwordSalt = $password . $salt;
+
+        // SHA over MD5 because MD5 is not secure
+        // https://security.stackexchange.com/questions/19906/is-md5-considered-insecure
+        $passwordSaltHash = sha1($passwordSalt);
+
+        $sql = "INSERT into tbl_user (FName, LName, Email, Password, Salt) VALUES (?, ?, ?, ?, ?)";
+        $stmt = mysqli_stmt_init($db);
+
+        mysqli_stmt_prepare($stmt, $sql);
+        mysqli_stmt_bind_param($stmt, "sssss", $firstname, $lastname, $email, $passwordSaltHash, $salt);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_store_result($stmt);
+
+        $_SESSION['userId'] = mysqli_stmt_insert_id($stmt);
+        $_SESSION['firstName'] = $firstname;
+        $_SESSION['isSignedIn'] = true;
     }
 ?>

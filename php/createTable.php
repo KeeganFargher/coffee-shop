@@ -94,6 +94,7 @@ function remakeUserTable($db) {
         `LName` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
         `Email` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
         `Password` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+        `Salt` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
         PRIMARY KEY (`ID`)
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1";
 
@@ -104,13 +105,13 @@ function insertUserData($db) {
     //  Open File
     $userfile = fopen("data/userData.txt", "r") or die("Unable to open file!");
 
-    $insertQuery = "INSERT INTO tbl_user (FName, LName, Email, Password) VALUES ";
+    $insertQuery = "INSERT INTO tbl_user (FName, LName, Email, Password, Salt) VALUES ";
 
     //  Output one line at a time
     while (!feof($userfile)) {
 
         //  Split the row into an array
-        $split = explode(" ", fgets($userfile));
+        $split = explode(",", fgets($userfile));
 
         //  Trim any spaces
         $split[4] = trim($split[4]);
@@ -118,7 +119,7 @@ function insertUserData($db) {
         //  We are inserting multiple rows at a time rather than one insert statement per row
         //  because it is much faster.
         // https://stackoverflow.com/questions/779986/insert-multiple-rows-via-a-php-array-into-mysql/780046#780046
-        $insertQuery = $insertQuery . "('$split[1]', '$split[2]', '$split[3]', '$split[4]'), ";
+        $insertQuery = $insertQuery . "('$split[0]', '$split[1]', '$split[2]', '$split[3]', '$split[4]'), ";
     }
     fclose($userfile);
 
