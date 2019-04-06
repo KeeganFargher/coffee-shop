@@ -1,8 +1,6 @@
-(This is a markdown file)
-
 # Welcome to Grinder ☕
 
-Your number one shop for fresh coffee beans
+Your number one shop for fresh coffee beans.
 
 #### You can login using the following details:
 
