@@ -10,6 +10,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="img/icons/ms-icon-144x144.png">
+<meta name="theme-color" content="#1a1a1a">
 
 <!-- Internal links -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -18,10 +21,10 @@
 <link href="css/normalize.min.css" rel="stylesheet" />
 
 <!-- External links -->
-<link href="https://unpkg.com/ionicons@4.4.8/dist/css/ionicons.min.css" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500" rel="stylesheet">
+<link href="https://unpkg.com/ionicons@4.4.8/dist/css/ionicons.min.css" rel="stylesheet" defer />
+<link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500" rel="stylesheet" defer>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" defer>
 
 <!-- Icons -->
 <link rel="apple-touch-icon" sizes="57x57" href="img/icons/apple-icon-57x57.png">
@@ -38,6 +41,3 @@
 <link rel="icon" type="image/png" sizes="96x96" href="img/icons/favicon-96x96.png">
 <link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png">
 <link rel="manifest" href="img/icons/manifest.json">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="img/icons/ms-icon-144x144.png">
-<meta name="theme-color" content="#1a1a1a">
