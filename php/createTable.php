@@ -109,7 +109,7 @@ function getRow($split) {
 
     for ($i = 0; $i < count($split); $i++) {
 
-        $queryValues .= "'$split[$i]'";
+        $queryValues .= "'" . trim($split[$i]) . "'";
 
         //  We don't want to add a comma to the last value
         if ($i < count($split) - 1) { $queryValues .= ", "; }

@@ -12,6 +12,7 @@ include_once("DBConn.php");
 
 // Define variables and set to empty values
 $email = $password = $error = "";
+$incorrectDetails = false;
 
 if (isset($_POST['submit'])) {
 
@@ -34,17 +35,20 @@ if (isset($_POST['submit'])) {
         $passwordHash = sha1($passwordSalt);
 
         //  If passwords match
-        if ($row['Password'] === $passwordHash) {
-            $_SESSION['userId'] = $row['ID'];
-            $_SESSION['firstName'] = $row['FName'];
-            $_SESSION['isSignedIn'] = true;
-
-            header("location: ../shop-home.php");
-        } else {
-            redirect_to_signup($email, $password);
-        }
+        if ($row['Password'] !== $passwordHash) {
+            $incorrectDetails = true;
+        } 
     } else {
+        $incorrectDetails = true;
+    }
+
+    if ($incorrectDetails) {
         redirect_to_signup($email, $password);
+    } else {
+        $_SESSION['userId'] = $row['ID'];
+        $_SESSION['firstName'] = $row['FName'];
+        $_SESSION['isSignedIn'] = true;
+        header("location: ../shop-home.php");
     }
 }
 

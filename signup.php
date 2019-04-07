@@ -15,7 +15,19 @@
 <html lang="en">
 
 <head>
-    <?php include("meta.php") ?>
+    <?php 
+    include("meta.php");
+
+    $GET_firstname      = isset($_GET['firstname'])      ? $_GET['firstname']      : "";
+    $GET_firstnameError = isset($_GET['firstnameError']) ? $_GET['firstnameError'] : "";
+    $GET_lastname       = isset($_GET['lastname'])       ? $_GET['lastname']       : "";
+    $GET_lastnameError  = isset($_GET['lastnameError'])  ? $_GET['lastnameError']  : "";
+    $GET_email          = isset($_GET['email'])          ? $_GET['email']          : "";
+    $GET_emailError     = isset($_GET['emailError'])     ? $_GET['emailError']     : "";
+    $GET_password       = isset($_GET['password'])       ? $_GET['password']       : "";
+    $GET_passwordError  = isset($_GET['passwordError'])  ? $_GET['passwordError']  : "";
+
+    ?>
     <link href="css/login.css" rel="stylesheet" />
 
     <title>Grinder | Sign Up</title>
@@ -45,10 +57,10 @@
                             <div class="col-12 col-sm-6">
                                 <label for="register-firstname">First Name</label>
                                 <input type="text" class="input-text form-control" name="register-firstname"
-                                    value="<?php if(isset($_GET['firstname'])) { echo $_GET['firstname']; } ?>" />
+                                    value="<?php echo $GET_firstname ?>" />
 
                                 <div class="invalid-feedback mb-3">
-                                    <?php if(isset($_GET['firstnameError'])) { echo $_GET['firstnameError']; } ?>
+                                    <?php echo $GET_firstnameError ?>
                                 </div>
                             </div>
 
@@ -56,9 +68,9 @@
                             <div class="col-12 col-sm-6">
                                 <label for="register-lastname">Last Name</label>
                                 <input type="text" class="input-text form-control" name="register-lastname"
-                                    value="<?php if(isset($_GET['lastname'])) { echo $_GET['lastname']; }?>" />
+                                    value="<?php echo $GET_lastname ?>" />
                                 <div class="invalid-feedback  mb-3">
-                                    <?php if(isset($_GET['lastnameError'])) { echo $_GET['lastnameError']; } ?>
+                                    <?php echo $GET_lastnameError ?>
                                 </div>
                             </div>
 
@@ -66,9 +78,9 @@
                             <div class="col-12 col-sm-6">
                                 <label for="register-email">Email</label>
                                 <input type="text" class="input-text form-control" name="register-email"
-                                    value="<?php if(isset($_GET['email'])) { echo $_GET['email']; }?>" />
+                                    value="<?php echo $GET_email ?>" />
                                 <div class="invalid-feedback  mb-3">
-                                    <?php if(isset($_GET['emailError'])) { echo $_GET['emailError']; } ?>
+                                    <?php echo $GET_emailError ?>
                                 </div>
                             </div>
 
@@ -76,10 +88,9 @@
                             <div class="col-12 col-sm-6">
                                 <label for="register-password">Password</label>
                                 <input autocomplete="new-password" type="password" class="input-text form-control"
-                                    name="register-password"
-                                    value="<?php if(isset($_GET['password'])) { echo $_GET['password']; }?>" />
+                                    name="register-password" value="<?php echo $GET_password ?>" />
                                 <div class="invalid-feedback">
-                                    <?php if(isset($_GET['passwordError'])) { echo $_GET['passwordError']; } ?>
+                                    <?php echo $GET_passwordError ?>
                                 </div>
                             </div>
 

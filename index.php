@@ -17,7 +17,15 @@ include_once("php/index-script.php");
 <html lang="en">
 
 <head>
-    <?php include_once("meta.php") ?>
+    <?php 
+    include_once("meta.php");
+
+    $GET_email    = isset($_GET['email'])    ? $_GET['email']    : "";
+    $GET_password = isset($_GET['password']) ? $_GET['password'] : "";
+    $GET_error    = isset($_GET['error'])    ? $_GET['error']    : "";
+
+    ?>
+
     <link href="css/login.css" rel="stylesheet" />
 
     <title>Grinder | Login</title>
@@ -37,15 +45,15 @@ include_once("php/index-script.php");
                         <!-- Email -->
                         <label for="email">Email</label>
                         <input type="email" class="input-text form-control mb-3" name="email"
-                            value="<?php if(isset($_GET['email'])) { echo $_GET['email']; } ?>" />
+                            value="<?php echo $GET_email ?>" />
 
                         <!-- Password -->
                         <label for="password">Password</label>
                         <input type="password" class="input-text form-control" name="password"
-                            value="<?php if(isset($_GET['password'])) { echo $_GET['password']; } ?>" />
+                            value="<?php echo $GET_password ?>" />
 
                         <div class="invalid-feedback">
-                            <?php if(isset($_GET['error'])) { echo $_GET['error']; } ?>
+                            <?php echo $GET_error ?>
                         </div>
 
                         <!-- Login Button -->
