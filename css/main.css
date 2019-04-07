@@ -82,8 +82,7 @@ body {
 }
 
 .loading {
-    background: transparent url('../img/loader.gif') center no-repeat;
-    min-height: 150px;
+    min-height: 190px;
 }
 
 /* MAIN LOADING ICON */
@@ -218,6 +217,21 @@ body {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
     }
+}
+
+.modal {
+    transform: translateX(-50%) translateY(calc(-50% - .5px));
+    background: #00000082;
+    transition: .5s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+    top: 50%;
+    left: 50%;
+    -webkit-filter: blur(0.000001px);
+    -webkit-font-smoothing: antialiased;
+}
+
+.modal-content {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+        0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 
@@ -437,6 +451,7 @@ a.navbar-brand {
 
 .card-padding {
     padding-bottom: 25px !important;
+    transition: .5s cubic-bezier(0.46, 0.03, 0.52, 0.96);
 }
 
 /* ----------------------------------------------- */

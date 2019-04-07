@@ -71,7 +71,6 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">The Price of Your Item</h5>
-
                 </div>
                 <div class="modal-body">
                     <p id="price"></p>
@@ -88,7 +87,6 @@
     <!-- JAVASCRIPT REQUIRED -->
     <script src="js/loader.js"></script>
     <script src="js/shop-buy.js"></script>
-
 
 </body>
 
