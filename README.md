@@ -18,6 +18,6 @@ d2e2JxhFrET
 
 #### How to setup database
 
--   Uncomment `include("php/createTable.php");` on line 13 inside of `index.php`.
--   This will create or remake **all** the tables and insert data on page load
+-   Run the php file found in `<root>/php/createTable.php`
+-   This will remake **all** the tables and insert data
 -   Alternatively -- run the `.sql` file

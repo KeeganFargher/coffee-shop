@@ -7,126 +7,116 @@
 -->
 
 <?php
-    include_once("php/DBConn.php");
+    include_once("DBConn.php");
 
-    remakeCoffeeStrengthTable($db);
-    insertCoffeeStrengthData($db);
+    $coffeeStrengthSql = 
+    "CREATE TABLE IF NOT EXISTS `tbl_coffee_strength` (
+    `Id` int(11) NOT NULL AUTO_INCREMENT,
+    `Strength` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    PRIMARY KEY (`Id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 
-    remakeItemTable($db);
-    insertItemData($db);
+    $itemSql =
+    "CREATE TABLE IF NOT EXISTS `tbl_item` (
+    `ID` int(11) NOT NULL AUTO_INCREMENT,
+    `Name` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    `Description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    `Cost_Price` decimal(15,2) NOT NULL,
+    `Quantity` int(11) NOT NULL,
+    `Sell_Price` decimal(15,2) NOT NULL,
+    `Coffee_Strength_Id` int(11) NOT NULL,
+    PRIMARY KEY (`ID`),
+    KEY `coffee_strength_id_constraint` (`Coffee_Strength_Id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 
-    remakeUserTable($db);
-    insertUserData($db);
+    $userSql = 
+    "CREATE TABLE `tbl_user` (
+    `ID` int(11) NOT NULL AUTO_INCREMENT,
+    `FName` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    `LName` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    `Email` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    `Password` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    `Salt` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    PRIMARY KEY (`ID`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=latin1";
 
-function remakeCoffeeStrengthTable($db) {
-    $drop = "DROP TABLE IF EXISTS tbl_coffee_strength;";
-    $db->query($drop);
+    echo "<h1>REMAKING TABLES & INSERTING DATA</h1>";
+    echo "<hr />";
 
-    $createQuery = "
-        CREATE TABLE IF NOT EXISTS `tbl_coffee_strength` (
-        `Id` int(11) NOT NULL AUTO_INCREMENT,
-        `Strength` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-        PRIMARY KEY (`Id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
+    dropTable($db, "tbl_coffee_strength");
+    dropTable($db, "tbl_item");
+    dropTable($db, "tbl_user");
 
-    $db->query($createQuery);
+    echo "<hr />";
+
+    createTable($db, "tbl_coffee_strength", $coffeeStrengthSql);
+    createTable($db, "tbl_item"           , $itemSql);
+    createTable($db, "tbl_user"           , $userSql);
+
+    echo "<hr />";
+
+    insertData($db, "coffeeStrength.txt" , "tbl_coffee_strength", "Strength");
+    insertData($db, "item.txt"           , "tbl_item"           , "Name, Cost_Price, Quantity, Sell_Price, Coffee_Strength_Id, Description");
+    insertData($db, "userData.txt"       , "tbl_user"           , "FName, LName, Email, Password, Salt");
+
+    echo "<hr />";
+
+/* Drops the table if it exists */
+function dropTable($db, $tableName) {
+    $dropQuery = "DROP TABLE IF EXISTS $tableName;";
+    echo ( $db->query( $dropQuery ) === TRUE ) ? "Dropped <b>$tableName</b>..." : "Error dropping $tableName: " . $db->error;
+    echo "<br />";
 }
 
-function insertCoffeeStrengthData($db) {
-    $sql = "INSERT INTO tbl_coffee_strength (Strength) VALUES ('Light Roast'), ('Dark Roast');";
-    if ($db->query($sql) !== TRUE) {
-        echo "Error: " . "<br>" . $db->error ;
-    }
+/* Creates the table */
+function createTable($db, $tableName, $sql) {
+    echo ($db->query($sql) === TRUE) ? "Created <b>$tableName</b>..." : "Error creating $tableName: " . $db->error;
+    echo "<br /> ";
 }
 
-function remakeItemTable($db) {
-    $drop = "DROP TABLE IF EXISTS tbl_item;";
-    $db->query($drop);
+/* Generic insert method that inserts data from a text file into a table */
+function insertData($db, $fileName, $tableName, $tableColumns) {
 
-    $createQuery = "
-        CREATE TABLE IF NOT EXISTS `tbl_item` (
-        `ID` int(11) NOT NULL AUTO_INCREMENT,
-        `Name` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-        `Description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-        `Cost_Price` decimal(15,2) NOT NULL,
-        `Quantity` int(11) NOT NULL,
-        `Sell_Price` decimal(15,2) NOT NULL,
-        `Coffee_Strength_Id` int(11) NOT NULL,
-        PRIMARY KEY (`ID`),
-        KEY `coffee_strength_id_constraint` (`Coffee_Strength_Id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
+    //  Define variables
+    $insertStatement = "INSERT INTO $tableName ($tableColumns) VALUES ";
+    $sql = "";
 
-    $db->query($createQuery);
-}
-
-function insertItemData($db) {
-    // Open File
-    $file = fopen("data/item.txt", "r") or die("Unable to open file!");
-
-    $insertQuery = "INSERT INTO tbl_item (Name, Cost_Price, Quantity, Sell_Price, Coffee_Strength_Id, Description) VALUES ";
+    //  Open the file
+    $file = fopen("../data/$fileName", "r") or die("Unable to open file $fileName for $tableName");
 
     // Output one line at a time
     while (!feof($file)) {
 
         // Split the row into an array
-        $split = explode("@", fgets($file));
+        $split = explode("*", fgets($file));
 
-        // We are inserting multiple rows at a time rather than one insert statement per row
-        // because it is much faster.
-        // https://stackoverflow.com/questions/779986/insert-multiple-rows-via-a-php-array-into-mysql/780046#780046
-        $insertQuery = $insertQuery . "('$split[0]', $split[1], $split[2], $split[3], $split[4], '$split[5]'), ";
+        $row = getRow($split);
+
+        $sql .= $insertStatement . $row;
     }
     fclose($file);
 
-    $insertQuery = rtrim($insertQuery, ', ');
-    if ($db->query($insertQuery) !== TRUE) {
-        echo "Error: " . "<br>" . $db->error ;
-    }
+    echo ($db->multi_query($sql) === TRUE) ? "Inserted data into <b>$tableName</b> successfully..." : "Error inserting data into $tableName: " . $db->error;
+    echo "<br />";
+
+    //  https://stackoverflow.com/questions/27899598/mysqli-multi-query-commands-out-of-sync-you-cant-run-this-command-now    
+    while ($db->next_result()) {;}
 }
 
-function remakeUserTable($db) {
-    $drop = "DROP TABLE IF EXISTS tbl_user;";
-    $db->query($drop);
+/*  Fetches a row and returns it in the format (?, '?', ?); */
+function getRow($split) {
+    $queryValues = "";
 
-    $createQuery = "
-        CREATE TABLE `tbl_user` (
-        `ID` int(11) NOT NULL AUTO_INCREMENT,
-        `FName` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-        `LName` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-        `Email` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-        `Password` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-        `Salt` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-        PRIMARY KEY (`ID`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=latin1";
+    for ($i = 0; $i < count($split); $i++) {
 
-    $db->query($createQuery);
-}
+        $queryValues .= "'$split[$i]'";
 
-function insertUserData($db) {
-    //  Open File
-    $userfile = fopen("data/userData.txt", "r") or die("Unable to open file!");
-
-    $insertQuery = "INSERT INTO tbl_user (FName, LName, Email, Password, Salt) VALUES ";
-
-    //  Output one line at a time
-    while (!feof($userfile)) {
-
-        //  Split the row into an array
-        $split = explode(",", fgets($userfile));
-
-        //  Trim any spaces
-        $split[4] = trim($split[4]);
-
-        //  We are inserting multiple rows at a time rather than one insert statement per row
-        //  because it is much faster.
-        // https://stackoverflow.com/questions/779986/insert-multiple-rows-via-a-php-array-into-mysql/780046#780046
-        $insertQuery = $insertQuery . "('$split[0]', '$split[1]', '$split[2]', '$split[3]', '$split[4]'), ";
+        //  We don't want to add a comma to the last value
+        if ($i < count($split) - 1) { $queryValues .= ", "; }
     }
-    fclose($userfile);
 
-    $insertQuery = rtrim($insertQuery, ', ');
-    if ($db->query($insertQuery) !== TRUE) {
-        echo "Error: " . "<br>" . $db->error ;
-    }
+    $queryValues = "(" . $queryValues . ");";
+
+    return $queryValues;
 }
 ?>

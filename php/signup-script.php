@@ -17,6 +17,7 @@
 
     if (isset($_POST['submit'])) {
 
+        //  Validate the input
         validate_first_name($firstname, $firstnameError, $error);
         validate_last_name($lastname, $lastnameError, $error);
         validate_email($email, $emailError, $error);
@@ -34,7 +35,12 @@
             header("location: ../signup.php?email=".$email."&password=".$password."&firstname=".$firstname."&lastname=".$lastname."&passwordError=".$passwordError."&firstnameError=".$firstnameError."&lastnameError=".$lastnameError."&emailError=".$emailError);
             return;
         } else {
-            create_user($firstname, $lastname, $email, $password, $db);
+            $userId = create_user($firstname, $lastname, $email, $password, $db);
+
+            $_SESSION['userId'] = mysqli_stmt_insert_id($stmt);
+            $_SESSION['firstName'] = $firstname;
+            $_SESSION['isSignedIn'] = true;
+
             header("location: ../shop-home.php");
         }
     }
@@ -47,7 +53,6 @@
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
-        //  Remove ',' so it doesn't conflict when we use explode() later
         $data = str_replace(",", "", $data);
         return $data;
     }
@@ -111,7 +116,7 @@
 
     function create_user($firstname, $lastname, $email, $password, $db) {
 
-        // Salt password
+        // Create a salt and add it to the end of the password
         $salt = sha1(microtime());
         $passwordSalt = $password . $salt;
 
@@ -119,6 +124,7 @@
         // https://security.stackexchange.com/questions/19906/is-md5-considered-insecure
         $passwordSaltHash = sha1($passwordSalt);
 
+        //  Using prepared statements to prevent SQL injection
         $sql = "INSERT into tbl_user (FName, LName, Email, Password, Salt) VALUES (?, ?, ?, ?, ?)";
         $stmt = mysqli_stmt_init($db);
 
@@ -127,8 +133,6 @@
         mysqli_stmt_execute($stmt);
         mysqli_stmt_store_result($stmt);
 
-        $_SESSION['userId'] = mysqli_stmt_insert_id($stmt);
-        $_SESSION['firstName'] = $firstname;
-        $_SESSION['isSignedIn'] = true;
+        return mysqli_stmt_insert_id($stmt);
     }
 ?>

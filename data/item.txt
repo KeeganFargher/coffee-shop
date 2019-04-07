@@ -1,16 +1,16 @@
-Bella Donovan@80.00@200@100.00@1@Raspberry, chocolate, molasses
-Giant Steps@80.00@50@100.00@1@Cocoa, toasted marshmallow, graham cracker
-Three Africas@80.00@50@100.00@1@Golden raisin, winey blueberry, lemon zest
-Beta Blend@80.00@50@100.00@1@Candied orange, milk chocolate, white peach
-New Orleans Iced Kit@80.00@50@100.00@1@Sweet, chicory-laden perfection in a glass
-Uganda Sipi Falls@80.00@50@100.00@1@Toasted marshmallow, butterscotch, peppercorn
-Pichincha Finca Meridiano@80.00@50@100.00@1@Raisin, allspice, chocolate syrup
-Honduras Santa Elena@80.00@50@100.00@1@Peach, guava, dulce de leche
-Ecuador Pichincha@80.00@50@100.00@2@Huckleberry, guava, white tea
-Kiambu Handege@80.00@50@100.00@2@Raisin, allspice, chocolate syrup
-Lourdes de Naranjo@80.00@50@100.00@2@Huckleberry, guava, white tea
-Opascope Espresso@80.00@50@100.00@2@Toasted marshmallow, butterscotch, peppercorn
-Ethiopia Gera Abana Estate@80.00@50@100.00@2@Raisin, allspice, chocolate syrup
-Santa Elena@80.00@50@100.00@2@Caramel, orange sherbet, cardamom
-Doris Alicia Benitez@80.00@50@100.00@2@Salted butterscotch, kumquat, cherry
-Hayes Valley Espresso@80.00@50@100.00@2@SBaking chocolate, orange zest, brown sugar
+Bella Donovan*80.00*200*100.00*1*Raspberry, chocolate, molasses
+Giant Steps*80.00*50*100.00*1*Cocoa, toasted marshmallow, graham cracker
+Three Africas*80.00*50*100.00*1*Golden raisin, winey blueberry, lemon zest
+Beta Blend*80.00*50*100.00*1*Candied orange, milk chocolate, white peach
+New Orleans Iced Kit*80.00*50*100.00*1*Sweet, chicory-laden perfection in a glass
+Uganda Sipi Falls*80.00*50*100.00*1*Toasted marshmallow, butterscotch, peppercorn
+Pichincha Finca Meridiano*80.00*50*100.00*1*Raisin, allspice, chocolate syrup
+Honduras Santa Elena*80.00*50*100.00*1*Peach, guava, dulce de leche
+Ecuador Pichincha*80.00*50*100.00*2*Huckleberry, guava, white tea
+Kiambu Handege*80.00*50*100.00*2*Raisin, allspice, chocolate syrup
+Lourdes de Naranjo*80.00*50*100.00*2*Huckleberry, guava, white tea
+Opascope Espresso*80.00*50*100.00*2*Toasted marshmallow, butterscotch, peppercorn
+Ethiopia Gera Abana Estate*80.00*50*100.00*2*Raisin, allspice, chocolate syrup
+Santa Elena*80.00*50*100.00*2*Caramel, orange sherbet, cardamom
+Doris Alicia Benitez*80.00*50*100.00*2*Salted butterscotch, kumquat, cherry
+Hayes Valley Espresso*80.00*50*100.00*2*SBaking chocolate, orange zest, brown sugar
