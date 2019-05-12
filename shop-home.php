@@ -132,15 +132,15 @@
         <div class="container">
             <h2 class="text-center line-under-text">We're happy to hear from you</h2>
 
-            <form method="POST" action="#" class="contact-form">
+            <form method="POST" action="https://formspree.io/fargherkeegan@gmail.com" class="contact-form">
                 <div class="form-group">
                     <label for="name">Full Name</label>
-                    <input class="form-control" aria-describedby="emailHelp" placeholder="Enter Full Name">
+                    <input class="form-control" name="name" placeholder="Enter Full Name">
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                    <input type="email" class="form-control" placeholder="Enter email" name="email">
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                         else.</small>
                 </div>
@@ -157,7 +157,7 @@
 
                 <div class="form-group">
                     <label for="textarea">Drop us a Line</label>
-                    <textarea class="form-control" id="textarea" rows="3"></textarea>
+                    <textarea class="form-control" id="textarea" rows="3" name="message"></textarea>
                 </div>
 
                 <input type="submit" class="btn btn-primary" value="Send">

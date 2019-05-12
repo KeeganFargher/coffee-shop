@@ -7,5 +7,5 @@ I confirm that this assignment is my own work and any work copied shall be refer
 */
 
 $(document).ready(function () {
-    $('.loader-background').hide();
+    $('.loader-background').fadeOut();
 })

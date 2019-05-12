@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
     $password = mysqli_real_escape_string($db, $_POST['password']);
 
     //  Select statement to validate if email actually exists
-    $sql = "SELECT * FROM tbl_user WHERE email = '$email'";
+    $sql = "SELECT * FROM tbl_customer WHERE email = '$email'";
     $result = $db->query($sql);
     $row = $result->fetch_assoc();
     $count = mysqli_num_rows($result);
