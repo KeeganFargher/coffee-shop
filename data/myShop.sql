@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS `test`;
-CREATE DATABASE IF NOT EXISTS `test`;
-USE `test`;
+-- DROP DATABASE IF EXISTS `test`;
+-- CREATE DATABASE IF NOT EXISTS `test`;
+-- USE `test`;
 
 DROP TABLE IF EXISTS `tbl_order_item`;
 DROP TABLE IF EXISTS `tbl_order`;
