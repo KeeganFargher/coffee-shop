@@ -15,14 +15,14 @@
 <meta name="theme-color" content="#1a1a1a">
 
 <!-- Internal links -->
-<link href="css/bootstrap.min.css" rel="stylesheet" />
+<link href='css/bootstrap.min.css' rel="stylesheet" />
 <link href="css/main.css" rel="stylesheet" />
 <link href="css/queries.css" rel="stylesheet" />
 <link href="css/normalize.min.css" rel="stylesheet" />
 
 <!-- External links -->
 <link href="https://unpkg.com/ionicons@4.4.8/dist/css/ionicons.min.css" rel="stylesheet" defer />
-<link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500" rel="stylesheet" defer>
+<link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,800" rel="stylesheet" defer>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" defer>
 

@@ -40,8 +40,9 @@
             $_SESSION['userId'] = mysqli_stmt_insert_id($stmt);
             $_SESSION['firstName'] = $firstname;
             $_SESSION['isSignedIn'] = true;
-
-            header("location: ../shop-home.php");
+            $_SESSION['isAdmin'] = false;
+            
+            header("location: ../index.php");
         }
     }
 
@@ -100,7 +101,7 @@
     }
 
     function check_if_email_exists($db, $email, &$emailError, &$error) {
-        $sql = "SELECT * FROM tbl_user WHERE Email=?";
+        $sql = "SELECT * FROM tbl_customer WHERE Email=?";
         $stmt = mysqli_stmt_init($db);
         mysqli_stmt_prepare($stmt, $sql);
         mysqli_stmt_bind_param($stmt, "s", $email);
@@ -125,7 +126,7 @@
         $passwordSaltHash = sha1($passwordSalt);
 
         //  Using prepared statements to prevent SQL injection
-        $sql = "INSERT into tbl_user (FName, LName, Email, Password, Salt) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT into tbl_customer (FName, LName, Email, Password, Salt) VALUES (?, ?, ?, ?, ?)";
         $stmt = mysqli_stmt_init($db);
 
         mysqli_stmt_prepare($stmt, $sql);

@@ -46,6 +46,15 @@ body {
     width: 250px;
 }
 
+.table-heading {
+    font-weight: 800;
+    color: black;
+    font-size: 0.8rem;
+    font-family: 'Raleway',
+        'Arial',
+        sans-serif;
+}
+
 .line-under-text:after {
     display: block;
     height: 2px;
@@ -264,6 +273,17 @@ a.navbar-brand {
     background-color: rgba(24, 24, 24, 0.9) !important;
     padding-top: 15px;
     padding-bottom: 15px;
+    position: sticky;
+}
+
+/* CART */
+.cart-container {
+    width: 50px;
+}
+
+.cart-counter {
+    margin-left: 5px;
+    display: inline;
 }
 
 /* ----------------------------------------------- */
@@ -273,7 +293,6 @@ a.navbar-brand {
     line-height: 145%;
     margin-left: 10%;
     margin-right: 10%;
-
 }
 
 /* ----------------------------------------------- */
@@ -336,7 +355,7 @@ a.navbar-brand {
 
 .container-white {
     background-color: white;
-    margin-top: 120px;
+    margin-top: 2rem;
     min-height: 100vh;
 }
 
@@ -375,7 +394,7 @@ a.navbar-brand {
         sans-serif !important;
 }
 
-.card button {
+.card a {
     position: absolute;
     left: 0;
     right: 0;
@@ -424,11 +443,13 @@ a.navbar-brand {
     border-color: white;
     color: white;
     font-weight: 500;
+    border-width: 1px;
 }
 
 .button-card-black {
     border: solid 2px #1a1a1a;
     font-weight: 500;
+    border-width: 1px;
 }
 
 .button-card-white:not([disabled]):not(.disabled):hover,
@@ -589,26 +610,13 @@ footer p {
 }
 
 /* ----------------------------------------------- */
-/* COMING SOON                                     */
+/* ADMIN TABLE                                     */
 /* ----------------------------------------------- */
 
-.coming-soon-container {
-    height: 100vh;
-    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url(../img/coming-soon.jpg);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url(../img/coming-soon.jpg);
-    background-size: cover;
+.container-table {
+    margin-top: 2rem;
 }
 
-.coming-soon-middle {
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-.coming-soon-middle h1 {
-    font-size: 3rem;
+.btn-table-action {
+    padding: 5px 10px;
 }

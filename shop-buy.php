@@ -7,8 +7,16 @@
     */
 
     session_start();
-    include_once("php/DBConn.php");
-    include_once("php/shop-buy-script.php");
+    include_once("php/shoppingCart.php");
+
+    if (isset($_SESSION["cart"])) {
+        $cart = unserialize($_SESSION["cart"]);
+        $cart->processUserInput();
+    } else {
+        $cart = new ShoppingCart;
+        $cart->initializeCart();
+    }
+    $cart->loadItems();
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +24,7 @@
 
 <head>
     <?php include("meta.php"); ?>
-
+    <link rel="stylesheet" href="css/toast.min.css">
     <title>Grinder | Shop Coffee</title>
 </head>
 
@@ -37,13 +45,12 @@
 
         <div class="cart-items-container">
             <?php 
-                generateShoppingTable(
-                    $db,
-                    "card text-white bg-primary mb-3",
-                    "btn btn-outline-secondary button-card-white",
-                    "",
-                    "",
-                    1);
+            $card_style = "text-white bg-primary";
+            $button_style = "btn-outline-secondary button-card-white";
+            $title_style = $description_style = "";
+            $coffee_strength_id = 1;
+
+            $cart->getProducts($card_style, $button_style, $title_style, $description_style, $coffee_strength_id);
             ?>
         </div>
     </div>
@@ -54,31 +61,14 @@
 
         <div class="cart-items-container">
             <?php 
-                generateShoppingTable(
-                    $db,
-                    "card border-primary mb-3",
-                    "btn btn-primary button-card-black ",
-                    "text-dark",
-                    "text-grey",
-                    2);
-            ?>
-        </div>
-    </div>
+            $card_style = "border-primary";
+            $button_style = "btn-primary button-card-black";
+            $title_style = "text-dark";
+            $description_style = "text-grey";
+            $coffee_strength_id = 1;
 
-    <!-- MODAL -->
-    <div class="modal" id="modal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">The Price of Your Item</h5>
-                </div>
-                <div class="modal-body">
-                    <p id="price"></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" onClick="closeModal()">Okay</button>
-                </div>
-            </div>
+            $cart->getProducts($card_style, $button_style, $title_style, $description_style, $coffee_strength_id);
+            ?>
         </div>
     </div>
 
@@ -87,7 +77,19 @@
     <!-- JAVASCRIPT REQUIRED -->
     <script src="js/loader.js"></script>
     <script src="js/shop-buy.js"></script>
+    <script src="js/toast.min.js"></script>
+    <script src="js/toastroptions.js"></script>
+    <script src="js/loader.js"></script>
+    <?php 
+    $_SESSION["cart"] = serialize($cart); 
 
+    if ($cart->getToastMessage() != "") {
+        echo 
+        "<script>
+            toastr.success('{$cart->getToastMessage()}');
+        </script>";
+    }
+    ?>
 </body>
 
 </html>

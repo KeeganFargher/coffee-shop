@@ -34,9 +34,9 @@ function generateShoppingTable($db, $card_style, $button_style, $title, $descrip
                     "</div>" .
                 "</div>" .
             "</div>";
-        }
+    }
 
-        // Closing row
-        echo "</div>";
+    // Closing row
+    echo "</div>";
 }
 ?>
