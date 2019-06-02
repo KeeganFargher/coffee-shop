@@ -10,13 +10,17 @@
 
 $cartCount = isset($_SESSION['cartCount']) ? $_SESSION['cartCount'] : 0;
 
-function getRedirectUrl() {
-    return ('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+function logout() {      
+    unset($_SESSION['userId']);
+    unset($_SESSION['firstName']);
+    unset($_SESSION['isSignedIn']);
+    unset($_SESSION['isAdmin']);
+
+    header("Location: index.php");
 }
 
-function logout() {
-    session_destroy();
-    header("Location: index.php");
+if (isset($_GET['logout'])) {
+    logout();
 }
 
 ?>
@@ -51,16 +55,24 @@ function logout() {
 
                 <?php if (isset($_SESSION['isSignedIn']) && $_SESSION['isSignedIn'] === true) { ?>
                 <!-- Display this if you are logged in -->
-                <li class='text-center text-lg-right mb-2 mb-sm-0'>
-                    <a href='#' class='mr-0 mr-lg-4'>Welcome <?php echo $_SESSION["firstName"] ?></a>
-                </li>
-                <li class='text-center text-lg-right'>
-                    <a href='login.php' class='mr-0 mr-lg-4'>Logout</a>
+                <li class="nav-item dropdown text-center text-lg-right">
+                    <a class="nav-link dropdown-toggle p-0" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Welcome <?php echo $_SESSION["firstName"] ?>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item text-dark" style='padding: 0.25rem 1.5rem;'
+                            href="order-history.php">Order History</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-dark" style='padding: 0.25rem 1.5rem;'
+                            href="<?php $_SERVER['SCRIPT_NAME']?>?logout=TRUE">Logout</a>
+                    </div>
                 </li>
                 <?php } else { ?>
                 <!-- Display this if you are NOT logged in -->
                 <li class='text-center text-lg-right'>
-                    <a href='login.php?redirect_url=<?php echo getRedirectUrl(); ?>' class='mr-0 mr-lg-4'>Login</a>
+                    <a href='login.php?redirect_url=<?php echo $_SERVER['SCRIPT_NAME']; ?>'
+                        class='mr-0 mr-lg-4'>Login</a>
                 </li>
                 <li class='text-center text-lg-right'>
                     <a href='signup.php' class='mr-0 mr-lg-4'>Sign Up</a>
@@ -70,9 +82,3 @@ function logout() {
         </div>
     </div>
 </nav>
-
-<script>
-    function cartHover() {
-        console.log('yop');
-    }
-</script>

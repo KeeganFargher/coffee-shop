@@ -1,4 +1,3 @@
-DROP TABLE IF EXISTS `tbl_coffee_strength`;
 CREATE TABLE IF NOT EXISTS `tbl_coffee_strength` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Strength` text NOT NULL,
@@ -9,7 +8,6 @@ INSERT IGNORE INTO `tbl_coffee_strength` (`Id`, `Strength`) VALUES
 	(1, 'Light Roast'),
 	(2, 'Dark Roast');
 
-DROP TABLE IF EXISTS `tbl_customer`;
 CREATE TABLE IF NOT EXISTS `tbl_customer` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `FName` text NOT NULL,
@@ -1024,9 +1022,12 @@ INSERT IGNORE INTO `tbl_customer` (`ID`, `FName`, `LName`, `Email`, `Password`, 
 	(998, 'Deirdre', 'Sinnett', 'dsinnettrp@dailymotion.com', '4337a4047ca0f9ae11ece081171873f3b4bf0722', '595a9b8884e3b9f39cda6ec9e8c6a399ed8b17c0', 1),
 	(999, 'Casper', 'Duberry', 'cduberryrq@fotki.com', '804d53636509877f8486217e01851aaf54cb95e6', 'e754a70e516bcea3481bf85ee46c0b4adf0bfb0f', 1),
 	(1000, 'Duke', 'Conniam', 'dconniamrr@wsj.com', '62993763a454ac757734cede9658937453860847', '4712b1910d5408024361840079f5b4da43d9f143', 1),
-	(1002, 'Keegan', 'Fargher', 'fargherkeegan@gmail.com', '1b3813c0e92752834e99b2535150c88582a68b45', '4bad1ea064f2f3864bfc40f237be0ef574a174fc', 2);
+	(1002, 'Keegan', 'Fargher', 'fargherkeegan@gmail.com', '1b3813c0e92752834e99b2535150c88582a68b45', '4bad1ea064f2f3864bfc40f237be0ef574a174fc', 2),
+	(1003, 'asd', 'asd', 'farghedrkeegan@gmail.com', 'b1d24e6aba3125a6f2c57f869658915b2897c033', '9edf83b56ac1a2be54c10f92e91feaba3d0ec54a', 1),
+	(1004, 'Keegan', 'Fargher', 'fargherkeegan@gmail.com33', 'f837cfc24f3cdedf0b2ad37f709049215618c72e', '359229f0d056ab54086fbcf4427b5966fe38de8c', 1),
+	(1005, 'Keeganff', 'Fargher', 'fargherkeegan@gmail.comff', '5d8f4dafbd674460c6cafa99a0122fa610fe9afc', '0a83efa23ce2380eae29e8fa4b8e7c2a0d6e67e2', 1),
+	(1006, 'Keegan', 'Fargher', 'fargherkeegan@gmdddail.com', '4fd2f3beb077466eb0a1b0e7685995fd3c8ef275', '9252bbdc40be977a9e7af08ff28853d5ecfdcead', 1);
 
-DROP TABLE IF EXISTS `tbl_item`;
 CREATE TABLE IF NOT EXISTS `tbl_item` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Name` text NOT NULL,
@@ -1041,9 +1042,9 @@ CREATE TABLE IF NOT EXISTS `tbl_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT IGNORE INTO `tbl_item` (`ID`, `Name`, `Description`, `Cost_Price`, `Quantity`, `Sell_Price`, `Coffee_Strength_Id`) VALUES
-	(1, 'Bella Donovan', 'Raspberry, chocolate, molasses', 80.00, 200, 100.00, 1),
-	(2, 'Giant Steps', 'Cocoa, toasted marshmallow, graham cracker', 80.00, 50, 100.00, 1),
-	(3, 'Three Africas', 'Golden raisin, winey blueberry, lemon zest', 80.00, 50, 100.00, 1),
+	(1, 'Bella Donovan', 'Raspberry, chocolate, molasses', 80.00, 196, 100.00, 1),
+	(2, 'Giant Steps', 'Cocoa, toasted marshmallow, graham cracker', 80.00, 41, 100.00, 1),
+	(3, 'Three Africas', 'Golden raisin, winey blueberry, lemon zest', 80.00, 48, 100.00, 1),
 	(4, 'Beta Blend', 'Candied orange, milk chocolate, white peach', 80.00, 50, 100.00, 1),
 	(5, 'New Orleans Iced Kit', 'Sweet, chicory-laden perfection in a glass', 80.00, 50, 100.00, 1),
 	(6, 'Uganda Sipi Falls', 'Toasted marshmallow, butterscotch, peppercorn', 80.00, 50, 100.00, 1),
@@ -1072,7 +1073,6 @@ INSERT IGNORE INTO `tbl_item` (`ID`, `Name`, `Description`, `Cost_Price`, `Quant
 	(29, 'Kenya Kirinyaga Kii', 'Vanilla, pomegranate, lemon zest', 80.00, 25, 100.00, 2),
 	(30, 'Brazil Campo das Vertentes ', 'Dark chocolate, candied walnut, vanilla', 40.00, 45, 130.00, 1);
 
-DROP TABLE IF EXISTS `tbl_order`;
 CREATE TABLE IF NOT EXISTS `tbl_order` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Customer_ID` int(11) NOT NULL,
@@ -2082,9 +2082,28 @@ INSERT IGNORE INTO `tbl_order` (`ID`, `Customer_ID`, `Date_Order_Placed`) VALUES
 	(997, 19, '2012-10-23 16:14:41'),
 	(998, 20, '2015-05-24 12:39:47'),
 	(999, 15, '2019-05-03 14:00:59'),
-	(1000, 26, '2014-08-06 09:25:01');
+	(1000, 26, '2014-08-06 09:25:01'),
+	(1001, 1002, '2019-05-25 21:01:36'),
+	(1002, 1002, '2019-05-25 21:03:41'),
+	(1003, 1002, '2019-05-25 21:18:24'),
+	(1004, 1002, '2019-05-25 21:18:50'),
+	(1005, 1002, '2019-05-25 21:21:01'),
+	(1006, 1002, '2019-05-28 14:48:54'),
+	(1007, 1002, '2019-05-28 15:26:48'),
+	(1008, 1002, '2019-05-28 19:55:23'),
+	(1009, 1002, '2019-05-28 20:04:09'),
+	(1010, 1002, '2019-06-02 20:29:20'),
+	(1011, 1002, '2019-06-02 20:33:19'),
+	(1012, 1002, '2019-06-02 23:10:34'),
+	(1013, 1002, '2019-06-02 23:12:47'),
+	(1014, 1002, '2019-06-02 23:16:32'),
+	(1015, 1002, '2019-06-02 23:18:35'),
+	(1016, 1002, '2019-06-02 23:19:22'),
+	(1017, 1002, '2019-06-02 23:22:59'),
+	(1018, 1002, '2019-06-02 23:23:08'),
+	(1019, 1002, '2019-06-02 23:32:37'),
+	(1020, 1002, '2019-06-02 23:33:55');
 
-DROP TABLE IF EXISTS `tbl_order_item`;
 CREATE TABLE IF NOT EXISTS `tbl_order_item` (
   `Item_ID` int(11) NOT NULL,
   `Order_ID` int(11) NOT NULL,
@@ -2121,6 +2140,13 @@ INSERT IGNORE INTO `tbl_order_item` (`Item_ID`, `Order_ID`, `Item_Quantity`) VAL
 	(1, 809, 5),
 	(1, 817, 4),
 	(1, 866, 15),
+	(1, 1001, 1),
+	(1, 1003, 5),
+	(1, 1004, 2),
+	(1, 1005, 2),
+	(1, 1006, 1),
+	(1, 1019, 1),
+	(1, 1020, 1),
 	(2, 17, 11),
 	(2, 79, 14),
 	(2, 136, 7),
@@ -2156,6 +2182,14 @@ INSERT IGNORE INTO `tbl_order_item` (`Item_ID`, `Order_ID`, `Item_Quantity`) VAL
 	(2, 854, 11),
 	(2, 909, 11),
 	(2, 997, 11),
+	(2, 1006, 1),
+	(2, 1007, 1),
+	(2, 1009, 1),
+	(2, 1010, 2),
+	(2, 1011, 3),
+	(2, 1012, 1),
+	(2, 1015, 1),
+	(2, 1019, 1),
 	(3, 11, 4),
 	(3, 29, 14),
 	(3, 34, 10),
@@ -2182,6 +2216,13 @@ INSERT IGNORE INTO `tbl_order_item` (`Item_ID`, `Order_ID`, `Item_Quantity`) VAL
 	(3, 941, 10),
 	(3, 944, 8),
 	(3, 950, 15),
+	(3, 1001, 1),
+	(3, 1006, 3),
+	(3, 1007, 2),
+	(3, 1008, 1),
+	(3, 1015, 1),
+	(3, 1019, 1),
+	(3, 1020, 1),
 	(4, 7, 7),
 	(4, 43, 3),
 	(4, 44, 6),
@@ -2221,6 +2262,10 @@ INSERT IGNORE INTO `tbl_order_item` (`Item_ID`, `Order_ID`, `Item_Quantity`) VAL
 	(4, 961, 3),
 	(4, 963, 10),
 	(4, 999, 4),
+	(4, 1001, 2),
+	(4, 1007, 1),
+	(4, 1015, 1),
+	(4, 1019, 1),
 	(5, 55, 6),
 	(5, 62, 7),
 	(5, 91, 6),
@@ -2281,6 +2326,7 @@ INSERT IGNORE INTO `tbl_order_item` (`Item_ID`, `Order_ID`, `Item_Quantity`) VAL
 	(6, 951, 5),
 	(6, 979, 11),
 	(6, 1000, 13),
+	(6, 1007, 3),
 	(7, 8, 3),
 	(7, 38, 2),
 	(7, 42, 2),
@@ -3018,6 +3064,7 @@ INSERT IGNORE INTO `tbl_order_item` (`Item_ID`, `Order_ID`, `Item_Quantity`) VAL
 	(28, 964, 14),
 	(28, 967, 14),
 	(28, 986, 11),
+	(28, 1007, 1),
 	(29, 3, 11),
 	(29, 12, 14),
 	(29, 13, 7),
@@ -3097,7 +3144,6 @@ INSERT IGNORE INTO `tbl_order_item` (`Item_ID`, `Order_ID`, `Item_Quantity`) VAL
 	(30, 960, 2),
 	(30, 996, 11);
 
-DROP TABLE IF EXISTS `tbl_role`;
 CREATE TABLE IF NOT EXISTS `tbl_role` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Role` varchar(50) NOT NULL DEFAULT '0',

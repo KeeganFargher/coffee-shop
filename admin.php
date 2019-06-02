@@ -37,6 +37,16 @@
 
         return $data;
     }
+
+    if (isset($_GET['ID'])) {
+        deleteItem($_GET['ID'], $cart);
+    }
+
+    function deleteItem($ID, $cart) {
+        $db = $cart->getDatabase();
+        $sql = "DELETE FROM tbl_Item WHERE ID = {$ID}";
+        $result = $db->query($sql);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -89,7 +99,7 @@
                     echo 
                     "<td class='text-center'>
                     <a href='admin-modify.php?ID={$item['ID']}' class='btn btn-primary btn-table-action'><i class='fas fa-edit'></i></a>
-                    <a href='#' class='btn btn-primary btn-table-action'><i class='fas fa-trash'></i></a>
+                    <a href='{$_SERVER['SCRIPT_NAME']}?ID={$item['ID']}' class='btn btn-primary btn-table-action'><i class='fas fa-trash'></i></a>
                     </td>";
 
                     echo "</tr>";

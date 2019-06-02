@@ -11,12 +11,14 @@
 
     if (isset($_SESSION["cart"])) {
         $cart = unserialize($_SESSION["cart"]);
+        $cart->loadItems();
         $cart->processUserInput();
     } else {
-        $cart = new ShoppingCart;
+        $cart = new ShoppingCart();
+        $cart->loadItems();
         $cart->initializeCart();
+        $cart->processUserInput();
     }
-    $cart->loadItems();
 ?>
 
 <!DOCTYPE html>
@@ -82,13 +84,7 @@
     <script src="js/loader.js"></script>
     <?php 
     $_SESSION["cart"] = serialize($cart); 
-
-    if ($cart->getToastMessage() != "") {
-        echo 
-        "<script>
-            toastr.success('{$cart->getToastMessage()}');
-        </script>";
-    }
+    echo $cart->getToastMessage();
     ?>
 </body>
 
